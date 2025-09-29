@@ -38,6 +38,7 @@
   	background-color : black;
   	color : white;
   	font-size : 25px;
+  	 
   }
    .textbox{
   	  padding : 10px;
@@ -48,6 +49,8 @@
   	color : red;
   	text-align : left;
 	font-size : 0.8em;
+	height: 18px; 
+    line-height: 1.2;
   }
 </style>
 </head>

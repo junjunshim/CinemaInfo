@@ -99,9 +99,7 @@
 					<div class = "checkbox">
 						<input type = "submit" value = "확인" class = "checkbutton">
 					</div>
-					
-			  </div>
-			  
+			  </div>			  
        </form>
  
     </div>

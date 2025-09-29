@@ -38,7 +38,7 @@
   .m_button{
   	background-color : black;
   	color : white;
-  	font-size : 25px;
+  	
   }
   .login_button{
   	padding : 2px;
@@ -53,6 +53,8 @@
 		color : red;
 		text-align : left;
 		font-size : 0.8em;
+		height: 18px; 
+    	line-height: 1.2;
 	}
 	.box{
 		margin-top : 10px;
