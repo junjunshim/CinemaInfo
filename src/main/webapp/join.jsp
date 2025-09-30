@@ -3,56 +3,7 @@
 <html>
 <head>
 <title>로그인</title>
-<style>
-  .joinform{
-	text-align :center;
-	width : 500px;
-	margin : 100px auto;
-	height : 700px;
-	padding : 30px;
-	margin-top : 30px;
-	/*border : 0.2px solid rgba(0, 0, 0, 0.2);*/
-	border-radius : 20px;
-	font-size : 16px;
-	display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color : white;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  }
-  body{
-  	background-color : rgba(188, 188, 188, 0.2);
-  }
-  input{
-  	height : 55px;
-  	width : 400px;
-  	margin : 2px;
-  	font-size : 17px;
-  	border : 0.1px solid rgba(0, 0, 0, 0.4);
-  	border-radius : 5px;
-  	color : grey;
-  	background-color :rgba(128, 128, 128, 0.1);
-  	
-  }
-  .j_button{
-  	background-color : black;
-  	color : white;
-  	font-size : 25px;
-  	 
-  }
-   .textbox{
-  	  padding : 10px;
-  	  
-	  margin-bottom : 4px; 
-  }
-  .error-message{
-  	color : red;
-  	text-align : left;
-	font-size : 0.8em;
-	height: 18px; 
-    line-height: 1.2;
-  }
-</style>
+<link rel="stylesheet" href="css/join.css">
 </head>
 <body>
 	<form action = "login.jsp" id = "join-form" name = "join-form" method = "post">
