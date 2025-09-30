@@ -1,79 +1,39 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPEhtml>
 <html>
 <head>
 <title>로그인</title>
-<style>
-  .joinform{
-	text-align :center;
-	width : 500px;
-	margin : 100px auto;
-	height : 700px;
-	padding : 30px;
-	margin-top : 30px;
-	/*border : 0.2px solid rgba(0, 0, 0, 0.2);*/
-	border-radius : 20px;
-	font-size : 16px;
-	display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color : white;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  }
-  body{
-  	background-color : rgba(188, 188, 188, 0.2);
-  }
-  input{
-  	height : 55px;
-  	width : 400px;
-  	margin : 2px;
-  	font-size : 17px;
-  	border : 0.1px solid rgba(0, 0, 0, 0.4);
-  	border-radius : 5px;
-  	color : grey;
-  	background-color :rgba(128, 128, 128, 0.1);
-  	
-  }
-  .j_button{
-  	background-color : black;
-  	color : white;
-  	font-size : 25px;
-  	 
-  }
-   .textbox{
-  	  padding : 10px;
-  	  
-	  margin-bottom : 4px; 
-  }
-  .error-message{
-  	color : red;
-  	text-align : left;
-	font-size : 0.8em;
-	height: 18px; 
-    line-height: 1.2;
-  }
-</style>
+<link rel="stylesheet" href="css/join.css">
+<link rel="stylesheet" href="css/header.css">
+<link rel="stylesheet" href="css/footer.css">
 </head>
 <body>
-	<form action = "login.jsp" id = "join-form" name = "join-form" method = "post">
-	<div class = "joinform">
-		<h1>회원가입</h1>
-		가입하고 다양한 혜택을 누리세요!
-		<div class = "textbox">
-			<p><input type = "text" id = "name" placeholder = "이름">
-			<div id="name-error" class="error-message"></div>
-			
-			<p><input type = "text" id = "id" placeholder = "아이디 입력(영문)">
-			<div id="id-error" class="error-message"></div>
-			
-			<p><input type = "password" id = "passwd" placeholder = "비밀번호(8~12자의 영문, 숫자)">
-			<div id="passwd-error" class="error-message"></div>
-			
-			<p><input type = "password" id = "pass" placeholder = "비밀번호 확인">
-			<div id="pass-error" class="error-message"></div>
+	<jsp:include page="header.jsp" />
+	<form action="login.jsp" id="join-form" name="join-form" method="post">
+		<div class="joinform">
+			<h1>회원가입</h1>
+			가입하고 다양한 혜택을 누리세요!
+			<div class="textbox">
+				<p>
+					<input type="text" id="name" placeholder="이름">
+				<div id="name-error" class="error-message"></div>
+
+				<p>
+					<input type="text" id="id" placeholder="아이디 입력(영문)">
+				<div id="id-error" class="error-message"></div>
+
+				<p>
+					<input type="password" id="passwd"
+						placeholder="비밀번호(8~12자의 영문, 숫자)">
+				<div id="passwd-error" class="error-message"></div>
+
+				<p>
+					<input type="password" id="pass" placeholder="비밀번호 확인">
+				<div id="pass-error" class="error-message"></div>
+			</div>
+			<p>
+				<input type="submit" value="가입하기" class="j_button">
 		</div>
-		<p><input type = "submit" value = "가입하기" class = "j_button">
-	</div>
 	</form>
 	<script>
     window.addEventListener("DOMContentLoaded", function() {
@@ -169,5 +129,6 @@
       });
     });
   </script>
+	<jsp:include page="footer.jsp" />
 </body>
 </html>
