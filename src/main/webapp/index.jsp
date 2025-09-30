@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <title>MovieIntro</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">    
 </head>
 <body>
     <!-- header include -->

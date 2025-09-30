@@ -1,0 +1,52 @@
+@charset "UTF-8";
+/* header */
+.header {
+    position: sticky;
+    top: 0;
+    background-color: #222;
+    padding: 15px 5%;
+    color: white;
+    z-index: 1000;
+}
+
+.logo-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    height: 40px;
+    margin-right: 20px;
+}
+
+.nav-menu-left {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+	
+.nav-menu-left a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav-menu-left a:hover {
+    text-decoration: underline;
+}
+
+.nav-menu-right{
+	display: flex;
+	gap: 20px;
+}
+
+.nav-menu-right a{
+	color: white;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.nav-menu-right a:hover{
+	text-decoration: underline;
+}
