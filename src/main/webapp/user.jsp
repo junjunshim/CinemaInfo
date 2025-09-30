@@ -5,11 +5,11 @@
 <meta charset="UTF-8">
 <title>마이페이지</title>
 <link rel="stylesheet" href="css/user.css">
-<style>
-
-</style>
+<link rel="stylesheet" href="css/header.css">
+<link rel="stylesheet" href="css/footer.css">
 </head>
 <body>
+	<jsp:include page="header.jsp" />
 	<div class="profile-box">
 		<form name="form-1" method="post">
 			<img src="" alt="userimage" class="user"> <label
@@ -34,5 +34,6 @@
 			</div>
 		</form>
 	</div>
+	<jsp:include page="footer.jsp" />
 </body>
 </html>

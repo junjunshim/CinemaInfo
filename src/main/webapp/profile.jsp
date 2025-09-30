@@ -4,8 +4,11 @@
 <head>
 <title>마이페이지</title>
 <link rel="stylesheet" href="css/profile.css">
+<link rel="stylesheet" href="css/header.css">
+<link rel="stylesheet" href="css/footer.css">
 </head>
 <body>
+	<jsp:include page="header.jsp" />
 	<div class="profile-box">
 
 
@@ -99,5 +102,6 @@
       });
     });
   </script>
+	<jsp:include page="footer.jsp" />
 </body>
 </html>
