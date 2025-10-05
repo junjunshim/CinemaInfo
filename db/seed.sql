@@ -30,7 +30,7 @@ BEGIN
     --------------------------------------------------------------------------------
 
     -- 1-1. 기생충
-    INSERT INTO movies (title, release_date, duration, audience, film_rating, genre, country, director, main_actor, description)
+    INSERT INTO movies (title, release_date, duration, audience, film_rating, category, country, director, main_actor, description)
     VALUES ('기생충', TO_DATE('2019-05-30', 'YYYY-MM-DD'), 132, 10313560, '15세 이상 관람가', '드라마', '대한민국', '봉준호', '송강호|이선균|조여정|최우식|박소담', '전원백수인 ‘기택’네 장남 ‘기우’가 고액 과외 면접을 위해 ‘박사장’네 집에 발을 들이면서 시작되는 두 가족의 걷잡을 수 없는 만남.')
     RETURNING movie_id INTO v_movie_id;
     UPDATE movies SET image_path = '/images/' || v_movie_id || '/' WHERE movie_id = v_movie_id;
@@ -41,7 +41,7 @@ BEGIN
     INSERT INTO reviews (movie_id, user_id, rating, review_comment) VALUES (v_movie_id, v_user_horror, 8.5, '공포영화는 아니지만 지하실 장면은 정말 소름끼쳤어요.');
 
     -- 1-2. 미나리
-    INSERT INTO movies (title, release_date, duration, audience, film_rating, genre, country, director, main_actor, description)
+    INSERT INTO movies (title, release_date, duration, audience, film_rating, category, country, director, main_actor, description)
     VALUES ('미나리', TO_DATE('2021-03-03', 'YYYY-MM-DD'), 115, 1135293, '12세 이상 관람가', '드라마', '미국', '정이삭', '스티븐 연|한예리|윤여정|앨런 김', '1980년대, 아메리칸드림을 좇아 미 아칸소주로 이주한 한인 가정의 이야기.')
     RETURNING movie_id INTO v_movie_id;
     UPDATE movies SET image_path = '/images/' || v_movie_id || '/' WHERE movie_id = v_movie_id;
@@ -52,7 +52,7 @@ BEGIN
     INSERT INTO reviews (movie_id, user_id, rating, review_comment) VALUES (v_movie_id, v_user_horror, 7.5, '마음이 정화되는 느낌. 할머니 너무 귀여우심.');
 
     -- 1-3. 벌새
-    INSERT INTO movies (title, release_date, duration, audience, film_rating, genre, country, director, main_actor, description)
+    INSERT INTO movies (title, release_date, duration, audience, film_rating, category, country, director, main_actor, description)
     VALUES ('벌새', TO_DATE('2019-08-29', 'YYYY-MM-DD'), 138, 146603, '15세 이상 관람가', '드라마', '대한민국', '김보라', '박지후|김새벽', '1994년, 거대한 세계 앞에서 방황하는 14살 ‘은희’가 한문학원 선생님 ‘영지’를 만나 자신만의 세상을 찾아가는 이야기.')
     RETURNING movie_id INTO v_movie_id;
     UPDATE movies SET image_path = '/images/' || v_movie_id || '/' WHERE movie_id = v_movie_id;
@@ -63,7 +63,7 @@ BEGIN
     INSERT INTO reviews (movie_id, user_id, rating, review_comment) VALUES (v_movie_id, v_user_horror, 8.0, '가정 폭력 장면은 어떤 공포 영화보다 현실적이라 무서웠다.');
 
     -- 1-4. 택시운전사
-    INSERT INTO movies (title, release_date, duration, audience, film_rating, genre, country, director, main_actor, description)
+    INSERT INTO movies (title, release_date, duration, audience, film_rating, category, country, director, main_actor, description)
     VALUES ('택시운전사', TO_DATE('2017-08-02', 'YYYY-MM-DD'), 137, 12189708, '15세 이상 관람가', '드라마|역사', '대한민국', '장훈', '송강호|토마스 크레치만|유해진|류준열', '1980년 5월, 서울의 택시운전사 ‘만섭’이 통금시간 전까지 광주에 다녀오면 큰 돈을 준다는 말에, 독일기자 ‘피터’를 태우고 아무것도 모른 채 광주로 가게 된 이야기.')
     RETURNING movie_id INTO v_movie_id;
     UPDATE movies SET image_path = '/images/' || v_movie_id || '/' WHERE movie_id = v_movie_id;
@@ -74,7 +74,7 @@ BEGIN
     INSERT INTO reviews (movie_id, user_id, rating, review_comment) VALUES (v_movie_id, v_user_horror, 8.5, '실제 역사가 주는 공포와 슬픔이 어떤 영화보다 무겁게 다가왔다.');
 
     -- 1-5. 남매의 여름밤
-    INSERT INTO movies (title, release_date, duration, audience, film_rating, genre, country, director, main_actor, description)
+    INSERT INTO movies (title, release_date, duration, audience, film_rating, category, country, director, main_actor, description)
     VALUES ('남매의 여름밤', TO_DATE('2020-08-20', 'YYYY-MM-DD'), 104, 25292, '전체 관람가', '드라마', '대한민국', '윤단비', '최정운|양흥주|박현영', '여름 방학 동안, 아빠와 함께 할아버지 집에서 지내게 된 남매 옥주와 동주가 겪는 가족의 이야기.')
     RETURNING movie_id INTO v_movie_id;
     UPDATE movies SET image_path = '/images/' || v_movie_id || '/' WHERE movie_id = v_movie_id;
@@ -85,7 +85,7 @@ BEGIN
     INSERT INTO reviews (movie_id, user_id, rating, review_comment) VALUES (v_movie_id, v_user_horror, 7.5, '특별한 사건은 없지만 가족이 해체될지도 모른다는 불안감이 스며있다.');
 
     -- 1-6. 8월의 크리스마스
-    INSERT INTO movies (title, release_date, duration, audience, film_rating, genre, country, director, main_actor, description)
+    INSERT INTO movies (title, release_date, duration, audience, film_rating, category, country, director, main_actor, description)
     VALUES ('8월의 크리스마스', TO_DATE('1998-01-24', 'YYYY-MM-DD'), 97, 422930, '15세 이상 관람가', '드라마|로맨스', '대한민국', '허진호', '한석규|심은하', '시한부 인생을 사는 사진사 정원과 주차단속요원 다림의 풋풋하고 애틋한 사랑 이야기.')
     RETURNING movie_id INTO v_movie_id;
     UPDATE movies SET image_path = '/images/' || v_movie_id || '/' WHERE movie_id = v_movie_id;
@@ -96,7 +96,7 @@ BEGIN
     INSERT INTO reviews (movie_id, user_id, rating, review_comment) VALUES (v_movie_id, v_user_horror, 8.5, '죽음을 앞둔 주인공의 시선이 너무나 담담해서 오히려 더 슬펐다.');
 
     -- 1-7. 우리들
-    INSERT INTO movies (title, release_date, duration, audience, film_rating, genre, country, director, main_actor, description)
+    INSERT INTO movies (title, release_date, duration, audience, film_rating, category, country, director, main_actor, description)
     VALUES ('우리들', TO_DATE('2016-06-16', 'YYYY-MM-DD'), 95, 50228, '전체 관람가', '드라마', '대한민국', '윤가은', '최수인|설혜인|이서연', '혼자가 되고 싶지 않은 외톨이 선과 비밀을 가진 전학생 지아의 복잡미묘한 여름을 그린 영화.')
     RETURNING movie_id INTO v_movie_id;
     UPDATE movies SET image_path = '/images/' || v_movie_id || '/' WHERE movie_id = v_movie_id;
@@ -107,7 +107,7 @@ BEGIN
     INSERT INTO reviews (movie_id, user_id, rating, review_comment) VALUES (v_movie_id, v_user_action, 7.5, '큰 움직임은 없지만 감정의 격돌이 대단한 영화.');
 
     -- 1-8. 소리도 없이
-    INSERT INTO movies (title, release_date, duration, audience, film_rating, genre, country, director, main_actor, description)
+    INSERT INTO movies (title, release_date, duration, audience, film_rating, category, country, director, main_actor, description)
     VALUES ('소리도 없이', TO_DATE('2020-10-15', 'YYYY-MM-DD'), 99, 403126, '15세 이상 관람가', '드라마|범죄', '대한민국', '홍의정', '유아인|유재명', '범죄 조직의 뒤처리를 하며 살아가는 ‘태인’과 ‘창복’이 예기치 않게 유괴된 아이를 떠맡게 되면서 벌어지는 사건.')
     RETURNING movie_id INTO v_movie_id;
     UPDATE movies SET image_path = '/images/' || v_movie_id || '/' WHERE movie_id = v_movie_id;
@@ -118,7 +118,7 @@ BEGIN
     INSERT INTO reviews (movie_id, user_id, rating, review_comment) VALUES (v_movie_id, v_user_horror, 8.0, '기묘하고 불편한 분위기가 영화 내내 계속된다. 독특한 스릴러.');
 
     -- 1-9. 찬실이는 복도 많지
-    INSERT INTO movies (title, release_date, duration, audience, film_rating, genre, country, director, main_actor, description)
+    INSERT INTO movies (title, release_date, duration, audience, film_rating, category, country, director, main_actor, description)
     VALUES ('찬실이는 복도 많지', TO_DATE('2020-03-05', 'YYYY-MM-DD'), 96, 28731, '12세 이상 관람가', '드라마|판타지', '대한민국', '김초희', '강말금|윤여정|김영민|윤승아', '일복만 터졌지 남자복은 없던 영화 프로듀서 찬실이 감독의 갑작스런 죽음으로 실직한 후 벌어지는 이야기.')
     RETURNING movie_id INTO v_movie_id;
     UPDATE movies SET image_path = '/images/' || v_movie_id || '/' WHERE movie_id = v_movie_id;
@@ -129,7 +129,7 @@ BEGIN
     INSERT INTO reviews (movie_id, user_id, rating, review_comment) VALUES (v_movie_id, v_user_horror, 7.5, '장국영 귀신(?)이 나오는 장면이 코믹하면서도 묘한 분위기를 자아낸다.');
 
     -- 1-10. 봄날은 간다
-    INSERT INTO movies (title, release_date, duration, audience, film_rating, genre, country, director, main_actor, description)
+    INSERT INTO movies (title, release_date, duration, audience, film_rating, category, country, director, main_actor, description)
     VALUES ('봄날은 간다', TO_DATE('2001-09-28', 'YYYY-MM-DD'), 115, 362481, '15세 이상 관람가', '드라마|로맨스', '대한민국', '허진호', '유지태|이영애', '사운드 엔지니어 상우와 지방 방송국 PD 은수가 만나 사랑에 빠지고 헤어지는 과정을 현실적으로 그린 멜로 영화.')
     RETURNING movie_id INTO v_movie_id;
     UPDATE movies SET image_path = '/images/' || v_movie_id || '/' WHERE movie_id = v_movie_id;
@@ -145,7 +145,7 @@ BEGIN
     --------------------------------------------------------------------------------
 
     -- 2-1. 범죄도시2
-    INSERT INTO movies (title, release_date, duration, audience, film_rating, genre, country, director, main_actor, description)
+    INSERT INTO movies (title, release_date, duration, audience, film_rating, category, country, director, main_actor, description)
     VALUES ('범죄도시2', TO_DATE('2022-05-18', 'YYYY-MM-DD'), 106, 12693415, '15세 이상 관람가', '액션|범죄', '대한민국', '이상용', '마동석|손석구|최귀화|박지환', '가리봉동 소탕작전 4년 뒤, 금천서 강력반은 베트남 일대를 장악한 최강 빌런 강해상을 잡기 위해 나선다.')
     RETURNING movie_id INTO v_movie_id;
     UPDATE movies SET image_path = '/images/' || v_movie_id || '/' WHERE movie_id = v_movie_id;
@@ -156,7 +156,7 @@ BEGIN
     INSERT INTO reviews (movie_id, user_id, rating, review_comment) VALUES (v_movie_id, v_user_horror, 8.0, '강해상 진짜 무서운 악당이네요. 마석도 아니었으면 큰일날 뻔.');
 
     -- 2-2. 베테랑
-    INSERT INTO movies (title, release_date, duration, audience, film_rating, genre, country, director, main_actor, description)
+    INSERT INTO movies (title, release_date, duration, audience, film_rating, category, country, director, main_actor, description)
     VALUES ('베테랑', TO_DATE('2015-08-05', 'YYYY-MM-DD'), 123, 13414484, '15세 이상 관람가', '액션', '대한민국', '류승완', '황정민|유아인|유해진|오달수', '안하무인 유아독존 재벌 3세를 쫓는 광역수사대의 활약을 그린 범죄오락액션.')
     RETURNING movie_id INTO v_movie_id;
     UPDATE movies SET image_path = '/images/' || v_movie_id || '/' WHERE movie_id = v_movie_id;
@@ -167,7 +167,7 @@ BEGIN
     INSERT INTO reviews (movie_id, user_id, rating, review_comment) VALUES (v_movie_id, v_user_horror, 7.5, '조태오 진짜 소름끼치는 악역. 저런 사람이 있을까 무서웠음.');
 
     -- 2-3. 신세계
-    INSERT INTO movies (title, release_date, duration, audience, film_rating, genre, country, director, main_actor, description)
+    INSERT INTO movies (title, release_date, duration, audience, film_rating, category, country, director, main_actor, description)
     VALUES ('신세계', TO_DATE('2013-02-21', 'YYYY-MM-DD'), 134, 4682492, '청소년 관람불가', '범죄|느와르', '대한민국', '박훈정', '이정재|최민식|황정민', '경찰 잠입 수사 작전을 설계해 범죄 조직에 침투한 경찰과 그를 형제처럼 아끼는 조직의 2인자, 그리고 작전의 판을 짜는 경찰 사이에서 벌어지는 의리와 배신.')
     RETURNING movie_id INTO v_movie_id;
     UPDATE movies SET image_path = '/images/' || v_movie_id || '/' WHERE movie_id = v_movie_id;
@@ -178,7 +178,7 @@ BEGIN
     INSERT INTO reviews (movie_id, user_id, rating, review_comment) VALUES (v_movie_id, v_user_horror, 8.0, '배신과 의심이 난무하는 분위기가 공포스럽기까지 하다.');
 
     -- 2-4. 극한직업
-    INSERT INTO movies (title, release_date, duration, audience, film_rating, genre, country, director, main_actor, description)
+    INSERT INTO movies (title, release_date, duration, audience, film_rating, category, country, director, main_actor, description)
     VALUES ('극한직업', TO_DATE('2019-01-23', 'YYYY-MM-DD'), 111, 16266338, '15세 이상 관람가', '코미디|액션', '대한민국', '이병헌', '류승룡|이하늬|진선규|이동휘|공명', '해체 위기의 마약반이 범죄조직 소탕을 위해 위장창업한 ‘마약치킨’이 일약 맛집으로 입소문을 타게 되면서 벌어지는 이야기.')
     RETURNING movie_id INTO v_movie_id;
     UPDATE movies SET image_path = '/images/' || v_movie_id || '/' WHERE movie_id = v_movie_id;
@@ -189,7 +189,7 @@ BEGIN
     INSERT INTO reviews (movie_id, user_id, rating, review_comment) VALUES (v_movie_id, v_user_horror, 7.0, '웃다가 끝나는 영화. 공포 요소는 전혀 없네요.');
     
     -- 2-5. 아저씨
-    INSERT INTO movies (title, release_date, duration, audience, film_rating, genre, country, director, main_actor, description)
+    INSERT INTO movies (title, release_date, duration, audience, film_rating, category, country, director, main_actor, description)
     VALUES ('아저씨', TO_DATE('2010-08-04', 'YYYY-MM-DD'), 119, 6178598, '청소년 관람불가', '액션|범죄', '대한민국', '이정범', '원빈|김새론', '아픔을 겪고 세상을 등진 채 살아가던 한 남자가 유일한 친구인 옆집 소녀가 범죄 조직에 납치되자, 그녀를 구하기 위해 세상 밖으로 다시 나오는 이야기.')
     RETURNING movie_id INTO v_movie_id;
     UPDATE movies SET image_path = '/images/' || v_movie_id || '/' WHERE movie_id = v_movie_id;
@@ -200,7 +200,7 @@ BEGIN
     INSERT INTO reviews (movie_id, user_id, rating, review_comment) VALUES (v_movie_id, v_user_horror, 8.5, '범죄 조직의 잔인함이 공포스럽게 느껴졌다. 특히 장기밀매 부분.');
     
     -- 2-6. 암살
-    INSERT INTO movies (title, release_date, duration, audience, film_rating, genre, country, director, main_actor, description)
+    INSERT INTO movies (title, release_date, duration, audience, film_rating, category, country, director, main_actor, description)
     VALUES ('암살', TO_DATE('2015-07-22', 'YYYY-MM-DD'), 140, 12706829, '15세 이상 관람가', '액션|시대극', '대한민국', '최동훈', '전지현|이정재|하정우', '1933년 조국이 사라진 시대, 대한민국 임시정부는 일본 측에 노출되지 않은 세 명을 암살작전에 지목한다.')
     RETURNING movie_id INTO v_movie_id;
     UPDATE movies SET image_path = '/images/' || v_movie_id || '/' WHERE movie_id = v_movie_id;
@@ -211,7 +211,7 @@ BEGIN
     INSERT INTO reviews (movie_id, user_id, rating, review_comment) VALUES (v_movie_id, v_user_horror, 7.5, '독립운동가들을 배신하는 밀정의 존재가 서늘한 긴장감을 준다.');
 
     -- 2-7. 도둑들
-    INSERT INTO movies (title, release_date, duration, audience, film_rating, genre, country, director, main_actor, description)
+    INSERT INTO movies (title, release_date, duration, audience, film_rating, category, country, director, main_actor, description)
     VALUES ('도둑들', TO_DATE('2012-07-25', 'YYYY-MM-DD'), 135, 12984682, '15세 이상 관람가', '범죄|액션', '대한민국', '최동훈', '김윤석|김혜수|이정재|전지현|김수현', '10인의 도둑, 1개의 다이아몬드. 그들이 움직이기 시작했다!')
     RETURNING movie_id INTO v_movie_id;
     UPDATE movies SET image_path = '/images/' || v_movie_id || '/' WHERE movie_id = v_movie_id;
@@ -222,7 +222,7 @@ BEGIN
     INSERT INTO reviews (movie_id, user_id, rating, review_comment) VALUES (v_movie_id, v_user_horror, 7.0, '서로를 믿지 못하는 도둑들 사이의 긴장감이 스릴있다.');
     
     -- 2-8. 내부자들
-    INSERT INTO movies (title, release_date, duration, audience, film_rating, genre, country, director, main_actor, description)
+    INSERT INTO movies (title, release_date, duration, audience, film_rating, category, country, director, main_actor, description)
     VALUES ('내부자들', TO_DATE('2015-11-19', 'YYYY-MM-DD'), 130, 9157293, '청소년 관람불가', '범죄|드라마', '대한민국', '우민호', '이병헌|조승우|백윤식', '대한민국 사회를 움직이는 숨겨진 권력가들의 의리와 배신을 담은 범죄드라마.')
     RETURNING movie_id INTO v_movie_id;
     UPDATE movies SET image_path = '/images/' || v_movie_id || '/' WHERE movie_id = v_movie_id;
@@ -233,7 +233,7 @@ BEGIN
     INSERT INTO reviews (movie_id, user_id, rating, review_comment) VALUES (v_movie_id, v_user_horror, 8.5, '권력의 민낯이 이토록 추악하고 무서울 수 있다는 것을 보여준다.');
 
     -- 2-9. 황해
-    INSERT INTO movies (title, release_date, duration, audience, film_rating, genre, country, director, main_actor, description)
+    INSERT INTO movies (title, release_date, duration, audience, film_rating, category, country, director, main_actor, description)
     VALUES ('황해', TO_DATE('2010-12-22', 'YYYY-MM-DD'), 156, 2260512, '청소년 관람불가', '액션|스릴러', '대한민국', '나홍진', '하정우|김윤석', '빚을 갚기 위해 청부살인을 맡고 밀항한 한 남자가 살인자 누명을 쓴 채 지독한 놈들에게 쫓기면서 벌이는 절망적인 사투.')
     RETURNING movie_id INTO v_movie_id;
     UPDATE movies SET image_path = '/images/' || v_movie_id || '/' WHERE movie_id = v_movie_id;
@@ -244,7 +244,7 @@ BEGIN
     INSERT INTO reviews (movie_id, user_id, rating, review_comment) VALUES (v_movie_id, v_user_viewer, 8.0, '너무 잔인해서 보기 힘들었지만, 하정우 배우의 먹방 연기는 인상 깊었다.');
 
     -- 2-10. 끝까지 간다
-    INSERT INTO movies (title, release_date, duration, audience, film_rating, genre, country, director, main_actor, description)
+    INSERT INTO movies (title, release_date, duration, audience, film_rating, category, country, director, main_actor, description)
     VALUES ('끝까지 간다', TO_DATE('2014-05-29', 'YYYY-MM-DD'), 111, 3450305, '15세 이상 관람가', '범죄|액션', '대한민국', '김성훈', '이선균|조진웅', '한순간의 실수로 위기에 처한 형사가 자신이 저지른 사건을 은폐하기 시작하며 벌어지는 예측불허의 이야기.')
     RETURNING movie_id INTO v_movie_id;
     UPDATE movies SET image_path = '/images/' || v_movie_id || '/' WHERE movie_id = v_movie_id;
@@ -260,7 +260,7 @@ BEGIN
     --------------------------------------------------------------------------------
 
     -- 3-1. 곡성
-    INSERT INTO movies (title, release_date, duration, audience, film_rating, genre, country, director, main_actor, description)
+    INSERT INTO movies (title, release_date, duration, audience, film_rating, category, country, director, main_actor, description)
     VALUES ('곡성', TO_DATE('2016-05-12', 'YYYY-MM-DD'), 156, 6879988, '15세 이상 관람가', '미스터리|스릴러|공포', '대한민국', '나홍진', '곽도원|황정민|쿠니무라 준|천우희', '낯선 외지인이 나타난 후 벌어지는 의문의 연쇄 사건들로 마을이 발칵 뒤집힌다.')
     RETURNING movie_id INTO v_movie_id;
     UPDATE movies SET image_path = '/images/' || v_movie_id || '/' WHERE movie_id = v_movie_id;
@@ -271,7 +271,7 @@ BEGIN
     INSERT INTO reviews (movie_id, user_id, rating, review_comment) VALUES (v_movie_id, v_user_action, 7.0, '액션은 아니지만 긴장감이 처음부터 끝까지... 대단하네요.');
 
     -- 3-2. 부산행
-    INSERT INTO movies (title, release_date, duration, audience, film_rating, genre, country, director, main_actor, description)
+    INSERT INTO movies (title, release_date, duration, audience, film_rating, category, country, director, main_actor, description)
     VALUES ('부산행', TO_DATE('2016-07-20', 'YYYY-MM-DD'), 118, 11576783, '15세 이상 관람가', '액션|스릴러', '대한민국', '연상호', '공유|정유미|마동석|김수안', '정체불명의 바이러스가 전국으로 확산되고 대한민국 긴급재난경보령이 선포된 가운데, 부산행 KTX에 몸을 실은 사람들의 생존을 건 치열한 사투.')
     RETURNING movie_id INTO v_movie_id;
     UPDATE movies SET image_path = '/images/' || v_movie_id || '/' WHERE movie_id = v_movie_id;
@@ -282,7 +282,7 @@ BEGIN
     INSERT INTO reviews (movie_id, user_id, rating, review_comment) VALUES (v_movie_id, v_user_critic, 7.5, '사회적 메시지를 좀비 아포칼립스 장르에 효과적으로 녹여낸 시도.');
 
     -- 3-3. 파묘
-    INSERT INTO movies (title, release_date, duration, audience, film_rating, genre, country, director, main_actor, description)
+    INSERT INTO movies (title, release_date, duration, audience, film_rating, category, country, director, main_actor, description)
     VALUES ('파묘', TO_DATE('2024-02-22', 'YYYY-MM-DD'), 134, 11913494, '15세 이상 관람가', '미스터리|공포', '대한민국', '장재현', '최민식|김고은|유해진|이도현', '미국 LA, 거액의 의뢰를 받은 무당 ‘화림’과 ‘봉길’은 기이한 병이 대물림되는 집안의 장손을 만난다.')
     RETURNING movie_id INTO v_movie_id;
     UPDATE movies SET image_path = '/images/' || v_movie_id || '/' WHERE movie_id = v_movie_id;
@@ -293,7 +293,7 @@ BEGIN
     INSERT INTO reviews (movie_id, user_id, rating, review_comment) VALUES (v_movie_id, v_user_action, 7.5, '무서우면서도 후반부에는 액션 활극 같은 느낌도 드네요.');
 
     -- 3-4. 장화, 홍련
-    INSERT INTO movies (title, release_date, duration, audience, film_rating, genre, country, director, main_actor, description)
+    INSERT INTO movies (title, release_date, duration, audience, film_rating, category, country, director, main_actor, description)
     VALUES ('장화, 홍련', TO_DATE('2003-06-13', 'YYYY-MM-DD'), 118, 3148203, '15세 이상 관람가', '공포|미스터리', '대한민국', '김지운', '임수정|문근영|염정아|김갑수', '인적이 드문 시골, 이름 모를 꽃들이 소담하게 피어 있는 일본식 목재 가옥에 두 자매가 아버지와 함께 이사를 온다.')
     RETURNING movie_id INTO v_movie_id;
     UPDATE movies SET image_path = '/images/' || v_movie_id || '/' WHERE movie_id = v_movie_id;
@@ -304,7 +304,7 @@ BEGIN
     INSERT INTO reviews (movie_id, user_id, rating, review_comment) VALUES (v_movie_id, v_user_action, 7.5, '움직임은 적지만 심리적 압박감이 대단하다.');
 
     -- 3-5. 악마를 보았다
-    INSERT INTO movies (title, release_date, duration, audience, film_rating, genre, country, director, main_actor, description)
+    INSERT INTO movies (title, release_date, duration, audience, film_rating, category, country, director, main_actor, description)
     VALUES ('악마를 보았다', TO_DATE('2010-08-12', 'YYYY-MM-DD'), 144, 1819672, '청소년 관람불가', '스릴러|범죄', '대한민국', '김지운', '이병헌|최민식', '국정원 경호요원 ‘수현’은 약혼녀가 잔인하게 살해당하자 자신 또한 괴물이 되기로 결심하고 연쇄살인마 ‘장경철’을 쫓는다.')
     RETURNING movie_id INTO v_movie_id;
     UPDATE movies SET image_path = '/images/' || v_movie_id || '/' WHERE movie_id = v_movie_id;
@@ -315,7 +315,7 @@ BEGIN
     INSERT INTO reviews (movie_id, user_id, rating, review_comment) VALUES (v_movie_id, v_user_viewer, 7.5, '너무 잔인해서 눈 가리고 봤어요. 최민식 배우 연기가 진짜 악마 같아서 무서웠어요.');
 
     -- 3-6. 살인의 추억
-    INSERT INTO movies (title, release_date, duration, audience, film_rating, genre, country, director, main_actor, description)
+    INSERT INTO movies (title, release_date, duration, audience, film_rating, category, country, director, main_actor, description)
     VALUES ('살인의 추억', TO_DATE('2003-04-25', 'YYYY-MM-DD'), 132, 5255376, '15세 이상 관람가', '스릴러|범죄', '대한민국', '봉준호', '송강호|김상경|박해일', '1986년 경기도, 젊은 여인이 무참히 강간, 살해당한 시체로 발견된다. 2개월 후, 비슷한 수법의 강간살인사건이 연이어 발생하면서 사건은 세간의 주목을 받기 시작한다.')
     RETURNING movie_id INTO v_movie_id;
     UPDATE movies SET image_path = '/images/' || v_movie_id || '/' WHERE movie_id = v_movie_id;
@@ -326,7 +326,7 @@ BEGIN
     INSERT INTO reviews (movie_id, user_id, rating, review_comment) VALUES (v_movie_id, v_user_action, 8.5, '액션은 없지만, 범인을 쫓는 형사들의 절박함이 엄청난 긴장감을 자아낸다.');
 
     -- 3-7. 올드보이
-    INSERT INTO movies (title, release_date, duration, audience, film_rating, genre, country, director, main_actor, description)
+    INSERT INTO movies (title, release_date, duration, audience, film_rating, category, country, director, main_actor, description)
     VALUES ('올드보이', TO_DATE('2003-11-21', 'YYYY-MM-DD'), 120, 3269000, '청소년 관람불가', '스릴러|미스터리', '대한민국', '박찬욱', '최민식|유지태|강혜정', '술 좋아하고 떠들기 좋아하는 오대수는 아내와 어린 딸이 있는 평범한 가장. 어느 날, 그는 정체불명의 괴한에게 납치되어 사설 감금방에 갇히게 된다.')
     RETURNING movie_id INTO v_movie_id;
     UPDATE movies SET image_path = '/images/' || v_movie_id || '/' WHERE movie_id = v_movie_id;
@@ -337,7 +337,7 @@ BEGIN
     INSERT INTO reviews (movie_id, user_id, rating, review_comment) VALUES (v_movie_id, v_user_viewer, 8.5, '보고나서 며칠 동안 멍했어요. 굉장히 충격적인데 대단한 영화인 건 알겠어요.');
 
     -- 3-8. 추격자
-    INSERT INTO movies (title, release_date, duration, audience, film_rating, genre, country, director, main_actor, description)
+    INSERT INTO movies (title, release_date, duration, audience, film_rating, category, country, director, main_actor, description)
     VALUES ('추격자', TO_DATE('2008-02-14', 'YYYY-MM-DD'), 125, 5046096, '청소년 관람불가', '스릴러|범죄', '대한민국', '나홍진', '김윤석|하정우', '출장안마소를 운영하는 전직 형사 ‘중호’, 최근 데리고 있던 여자들이 잇달아 사라지는 일이 발생하고, 조금 전 나간 ‘미진’을 찾아 헤맨다.')
     RETURNING movie_id INTO v_movie_id;
     UPDATE movies SET image_path = '/images/' || v_movie_id || '/' WHERE movie_id = v_movie_id;
@@ -348,7 +348,7 @@ BEGIN
     INSERT INTO reviews (movie_id, user_id, rating, review_comment) VALUES (v_movie_id, v_user_viewer, 8.5, '보는 내내 심장이 쫄깃했어요. "4885" 아직도 기억남.');
 
     -- 3-9. 검은 사제들
-    INSERT INTO movies (title, release_date, duration, audience, film_rating, genre, country, director, main_actor, description)
+    INSERT INTO movies (title, release_date, duration, audience, film_rating, category, country, director, main_actor, description)
     VALUES ('검은 사제들', TO_DATE('2015-11-05', 'YYYY-MM-DD'), 108, 5443260, '15세 이상 관람가', '미스터리|드라마', '대한민국', '장재현', '김윤석|강동원|박소담', '뺑소니 교통사고 이후 의문의 증상에 시달리는 한 소녀를 구하기 위해 모두의 반대와 의심 속에서 자신만의 계획을 준비하는 김신부와 그를 돕는 신학생 최부제의 이야기.')
     RETURNING movie_id INTO v_movie_id;
     UPDATE movies SET image_path = '/images/' || v_movie_id || '/' WHERE movie_id = v_movie_id;
@@ -359,7 +359,7 @@ BEGIN
     INSERT INTO reviews (movie_id, user_id, rating, review_comment) VALUES (v_movie_id, v_user_action, 7.0, '큰 액션은 없지만, 악령과의 사투가 주는 긴박감이 있다.');
 
     -- 3-10. 숨바꼭질
-    INSERT INTO movies (title, release_date, duration, audience, film_rating, genre, country, director, main_actor, description)
+    INSERT INTO movies (title, release_date, duration, audience, film_rating, category, country, director, main_actor, description)
     VALUES ('숨바꼭질', TO_DATE('2013-08-14', 'YYYY-MM-DD'), 107, 5604106, '15세 이상 관람가', '스릴러', '대한민국', '허정', '손현주|문정희|전미선', '고급 아파트에서 완벽한 가정을 꾸리고 사는 성공한 사업가 ‘성수’는 어느 날 형의 실종 소식을 듣고, 수십 년 만에 찾아간 형의 아파트에서 집집마다 새겨진 이상한 암호를 발견한다.')
     RETURNING movie_id INTO v_movie_id;
     UPDATE movies SET image_path = '/images/' || v_movie_id || '/' WHERE movie_id = v_movie_id;

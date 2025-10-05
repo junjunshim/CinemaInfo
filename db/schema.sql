@@ -39,7 +39,7 @@ CREATE TABLE movies (
     duration NUMBER(5) CHECK (duration > 0),
     audience NUMBER(10) DEFAULT 0,
     film_rating VARCHAR2(30),
-    genre VARCHAR2(50),
+    category VARCHAR2(50),
     country VARCHAR2(50),
     director VARCHAR2(100),
     main_actor VARCHAR2(100),
