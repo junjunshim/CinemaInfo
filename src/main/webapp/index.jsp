@@ -1,4 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.util.List, dto.Movie, dto.Review" %>
+
+<%
+	List<Movie> movieList = (List<Movie>)request.getAttribute("movieList");
+
+	Movie topMovie = (Movie)request.getAttribute("topMovie");
+	List<Review> reviewList = (List<Review>)request.getAttribute("reviewList");
+	
+	List<Movie> actionMovies = (List<Movie>)request.getAttribute("actionMovies");
+    List<Movie> dramaMovies = (List<Movie>)request.getAttribute("dramaMovies");
+    List<Movie> comedyMovies = (List<Movie>)request.getAttribute("comedyMovies");
+    List<Movie> mysteryMovies = (List<Movie>)request.getAttribute("mysteryMovies");
+    List<Movie> animationMovies = (List<Movie>)request.getAttribute("animationMovies");
+    
+%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -14,64 +29,73 @@
 
     <!-- main -->
     <main>
-    
     <!-- movie-grid : 랜덤 3개 영화 추천 -->
         <div class="movie-grid">
+        <%
+	    	if(movieList != null && !movieList.isEmpty()){
+	    		for(int i = 0; i < 3; i++){
+	    			Movie movie = movieList.get(i);
+   		%>
             <div class="movie-card">
-                <img src="https://via.placeholder.com/200x300" alt="영화 포스터">
-                <h2>예시 영화 1</h2>	
-                <p>간단한 설명입니다.</p>
-                <a href="detail.jsp">자세히 보기</a>
+                <img src="<%=request.getContextPath() %><%=movie.getImg_path() %>" alt="<%=movie.getMovie_title() %> 포스터">
+                <h2><%=movie.getMovie_title() %></h2>	
+                <p><%=movie.getDescription() %></p>
+                <a href="movieDetail.do?id=<%=movie.getMovie_id()%>">자세히 보기</a>
             </div>
-            <div class="movie-card">
-                <img src="https://via.placeholder.com/200x300" alt="영화 포스터">
-                <h2>예시 영화 2</h2>
-                <p>간단한 설명입니다.</p>
-                <a href="detail.jsp">자세히 보기</a>
-            </div>
-            <div class="movie-card">
-                <img src="https://via.placeholder.com/200x300" alt="영화 포스터">
-                <h2>예시 영화 3</h2>
-                <p>간단한 설명입니다.</p>
-                <a href="detail.jsp">자세히 보기</a>
-            </div>
+       	<%
+    			}
+    		}
+   		%>
         </div>
-        
+   
         <!-- top-movie : 화제의 영화 소개(영화 이미지, 리뷰)  -->
        <div class="top-movie">
+       <%
+       		if(topMovie != null){
+       %>
     	<!-- 영화 기본 정보 -->
     		<div class="top-movie-content">
         		<div class="top-movie-img">
-            		<img src="https://via.placeholder.com/175x250" alt="영화 포스터">
+            		<img src="<%=request.getContextPath() %><%=topMovie.getImg_path() %>" alt="<%=topMovie.getMovie_title() %> 포스터">
         		</div>
         		<div class="top-movie-title">
-            		<h2>예시 영화 제목</h2>
+            		<h2><%=topMovie.getMovie_title() %></h2>
         		</div>
     		</div>
 		<!-- 리뷰 영역 -->
     		<div class="top-movie-review">
         		<div class="top-review-title">
-           			<h3>‘예시 영화 제목’의 리뷰들</h3>
+           			<h3>'<%=topMovie.getMovie_title() %>'의 리뷰들</h3>
         		</div>
         		<div class="top-review-content">
+        		<%
+        			if(reviewList != null && !reviewList.isEmpty()){
+        				for(int i = 0; i < 4; i++){
+        					Review review = reviewList.get(i);
+        		%>
             		<div class="review-item">
-                		<div class="top-review-score">⭐ 4.5</div>
-               			<div class="top-review-text">정말 재미있고 몰입감 있는 영화였어요!</div>
+                		<div class="top-review-score">⭐ <%=review.getRating() %></div>
+               			<div class="top-review-text"><%=review.getReview_comment() %></div>
             		</div>
-            		<div class="review-item">
-                		<div class="top-review-score">⭐ 4.5</div>
-                		<div class="top-review-text">정말 재미있고 몰입감 있는 영화였어요!</div>
-            		</div>
-            		<div class="review-item">
-                		<div class="top-review-score">⭐ 4.5</div>
-                		<div class="top-review-text">정말 재미있고 몰입감 있는 영화였어요!</div>
-            		</div>
-            		<div class="review-item">
-                		<div class="top-review-score">⭐ 4.5</div>
-                		<div class="top-review-text">정말 재미있고 몰입감 있는 영화였어요!</div>
-            		</div>
+           		<%
+        				}
+        			}
+        			else{
+           		%>
+           			<p>아직 등록된 리뷰가 없습니다.</p>
+           		<%
+        			}
+           		%>
     			</div>
     		</div>
+    		<%
+	       		}
+	       		else{
+    		%>
+    		<p>화제의 영화가 없습니다.</p>
+    		<%
+  				}
+  			%>
 		</div>
 
         
@@ -79,43 +103,111 @@
         <!-- 액션 영화 -->
 		<div class="category-movie">
 		    <div class="category-upper">
-		        <div class="category-title">액션 영화</div>
-		        <a href="categoryAction.jsp" class="categorypage-link">더보기 &raquo;</a>
+		        <div class="category-title">액션</div>
+		        <a href="category.do?category=액션" class="categorypage-link">더보기 &raquo;</a>
 		    </div>
 		    <div class="category-img-container">
-		        <div class="category-movie-img"><img src="https://via.placeholder.com/250x175" alt="액션 영화 1"></div>
-		        <div class="category-movie-img"><img src="https://via.placeholder.com/250x175" alt="액션 영화 2"></div>
-		        <div class="category-movie-img"><img src="https://via.placeholder.com/250x175" alt="액션 영화 3"></div>
-		        <div class="category-movie-img"><img src="https://via.placeholder.com/250x175" alt="액션 영화 4"></div>
+		    <%
+		    	if(actionMovies != null && !actionMovies.isEmpty()){
+		    		for(int i = 0; i < 4; i++){
+		    			Movie actionMovie = actionMovies.get(i);
+		    %>
+		        <div class="category-movie-img"><img src="<%=request.getContextPath() %><%=actionMovie.getImg_path() %>" alt="<%=actionMovie.getMovie_title() %> 포스터"></div>
+		        <%
+		        	}
+		        %>
 		    </div>
+		    <%
+		    	}
+		    %>
 		</div>
 		
 		<!-- 드라마 영화 -->
 		<div class="category-movie">
 		    <div class="category-upper">
-		        <div class="category-title">드라마 영화</div>
-		        <a href="categoryDrama.jsp" class="categorypage-link">더보기 &raquo;</a>
+		        <div class="category-title">드라마</div>
+		        <a href="category.do?category=드라마" class="categorypage-link">더보기 &raquo;</a>
 		    </div>
 		    <div class="category-img-container">
-		        <div class="category-movie-img"><img src="https://via.placeholder.com/250x175" alt="드라마 영화 1"></div>
-		        <div class="category-movie-img"><img src="https://via.placeholder.com/250x175" alt="드라마 영화 2"></div>
-		        <div class="category-movie-img"><img src="https://via.placeholder.com/250x175" alt="드라마 영화 3"></div>
-		        <div class="category-movie-img"><img src="https://via.placeholder.com/250x175" alt="드라마 영화 4"></div>
+		    <%
+		    	if(dramaMovies != null && !dramaMovies.isEmpty()){
+		    		for(int i = 0; i < 4; i++){
+		    			Movie dramaMovie = dramaMovies.get(i);
+		    %>
+		        <div class="category-movie-img"><img src="<%=request.getContextPath() %><%=dramaMovie.getImg_path() %>" alt="<%=dramaMovie.getMovie_title() %> 포스터"></div>
+		        <%
+		        	}
+		        %>
 		    </div>
+		    <%
+		    	}
+		    %>
 		</div>
 		
 		<!-- 코미디 영화 -->
 		<div class="category-movie">
 		    <div class="category-upper">
-		        <div class="category-title">코미디 영화</div>
-		        <a href="categoryComedy.jsp" class="categorypage-link">더보기 &raquo;</a>
+		        <div class="category-title">코미디</div>
+		        <a href="category.do?category=코미디" class="categorypage-link">더보기 &raquo;</a>
 		    </div>
 		    <div class="category-img-container">
-		        <div class="category-movie-img"><img src="https://via.placeholder.com/250x175" alt="코미디 영화 1"></div>
-		        <div class="category-movie-img"><img src="https://via.placeholder.com/250x175" alt="코미디 영화 2"></div>
-		        <div class="category-movie-img"><img src="https://via.placeholder.com/250x175" alt="코미디 영화 3"></div>
-		        <div class="category-movie-img"><img src="https://via.placeholder.com/250x175" alt="코미디 영화 4"></div>
+		    <%
+		    	if(comedyMovies != null && !comedyMovies.isEmpty()){
+		    		for(int i = 0; i < 4; i++){
+		    			Movie comedyMovie = comedyMovies.get(i);
+		    %>
+		        <div class="category-movie-img"><img src="<%=request.getContextPath() %><%=comedyMovie.getImg_path() %>" alt="<%=comedyMovie.getMovie_title() %> 포스터"></div>
+		        <%
+		        	}
+		        %>
 		    </div>
+		    <%
+		    	}
+		    %>
+		</div>
+		
+		<!-- 미스터리 영화 -->
+		<div class="category-movie">
+		    <div class="category-upper">
+		        <div class="category-title">미스터리</div>
+		        <a href="category.do?category=미스터리" class="categorypage-link">더보기 &raquo;</a>
+		    </div>
+		    <div class="category-img-container">
+		    <%
+		    	if(mysteryMovies != null && !mysteryMovies.isEmpty()){
+		    		for(int i = 0; i < 4; i++){
+		    			Movie mysteryMovie = mysteryMovies.get(i);
+		    %>
+		        <div class="category-movie-img"><img src="<%=request.getContextPath() %><%=mysteryMovie.getImg_path() %>" alt="<%=mysteryMovie.getMovie_title() %> 포스터"></div>
+		        <%
+		        	}
+		        %>
+		    </div>
+		    <%
+		    	}
+		    %>
+		</div>
+		
+		<!-- 애니메이션 영화 -->
+		<div class="category-movie">
+		    <div class="category-upper">
+		        <div class="category-title">애니메이션</div>
+		        <a href="category.do?category=애니메이션" class="categorypage-link">더보기 &raquo;</a>
+		    </div>
+		    <div class="category-img-container">
+		    <%
+		    	if(mysteryMovies != null && !mysteryMovies.isEmpty()){
+		    		for(int i = 0; i < 4; i++){
+		    			Movie animationMovie = animationMovies.get(i);
+		    %>
+		        <div class="category-movie-img"><img src="<%=request.getContextPath() %><%=animationMovie.getImg_path() %>" alt="<%=animationMovie.getMovie_title() %> 포스터"></div>
+		        <%
+		        	}
+		        %>
+		    </div>
+		    <%
+		    	}
+		    %>
 		</div>
     </main>
 
