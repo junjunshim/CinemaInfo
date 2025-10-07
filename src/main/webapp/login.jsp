@@ -12,15 +12,15 @@
 <jsp:include page="header.jsp" />
 	<div class="container py-4">
 		<div class="box">
-			<form action="index.jsp" id="myform" name="loform" method="post">
+			<form action="login_process.jsp" id="myform" name="loform" method="post">
 				<div class="login-form">
 					<h1 style="font-size: 35px">로 그 인</h1>
 					<div class="textbox">
 						<p>
-							<input id="userinput" placeholder="아이디" class="login_button">
+							<input id="userinput" name="username" placeholder="아이디" class="login_button">
 						<div id="id-error" class="error-message"></div>
 						<p>
-							<input id="passwd" type="password" placeholder="비밀번호"
+							<input id="passwd" name="passwd" type="password" placeholder="비밀번호"
 								class="login_button">
 						<div id="passwd-error" class="error-message"></div>
 
