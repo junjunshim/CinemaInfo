@@ -3,6 +3,7 @@ package dto;
 import java.io.Serializable;
 import java.sql.Date;
 
+//리뷰 데이터 관리를 위한 Review 클래스
 public class Review implements Serializable {
 	//리뷰 id
 	private long review_id;

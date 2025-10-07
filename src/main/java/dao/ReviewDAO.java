@@ -10,7 +10,7 @@ import db.DBManager;
 import dto.Review;
 
 /**
- * 데이터베이스의 review 테이블과 직접 통신하며
+ * 데이터베이스의 reviews 테이블과 직접 통신하며
  * SQL 쿼리를 실행하는 클래스 (DAO: Data Access Object)
  */
 public class ReviewDAO {

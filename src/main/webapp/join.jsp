@@ -9,27 +9,30 @@
 </head>
 <body>
 	<jsp:include page="header.jsp" />
-	<form action="login.jsp" id="join-form" name="join-form" method="post">
+	<form action="join_process.jsp" id="join-form" name="join-form" method="post">
 		<div class="joinform">
 			<h1>회원가입</h1>
 			가입하고 다양한 혜택을 누리세요!
 			<div class="textbox">
 				<p>
-					<input type="text" id="name" placeholder="이름">
+					<input type="text" id="name" name="name" placeholder="이름">
 				<div id="name-error" class="error-message"></div>
 
 				<p>
-					<input type="text" id="id" placeholder="아이디 입력(영문)">
+					<input type="text" id="id" name="id" placeholder="아이디 입력(영문)">
 				<div id="id-error" class="error-message"></div>
 
 				<p>
-					<input type="password" id="passwd"
-						placeholder="비밀번호(8~12자의 영문, 숫자)">
+					<input type="password" id="passwd" name="passwd" placeholder="비밀번호(8~12자의 영문, 숫자)">
 				<div id="passwd-error" class="error-message"></div>
 
 				<p>
 					<input type="password" id="pass" placeholder="비밀번호 확인">
 				<div id="pass-error" class="error-message"></div>
+				
+				<p>
+                	<input type="email" id="email" name="email" placeholder="이메일">
+            	<div id="email-error" class="error-message"></div>
 			</div>
 			<p>
 				<input type="submit" value="가입하기" class="j_button">
