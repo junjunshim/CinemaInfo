@@ -8,7 +8,9 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-// 데이터베이스 커넥션 풀을 관리하는 클래스
+/**
+ *데이터베이스 커넥션 풀을 관리하는 클래스 
+ */
 public class DBManager {
 
     /**
@@ -30,27 +32,29 @@ public class DBManager {
             // 4. DataSource를 통해 커넥션 풀에서 Connection 하나를 빌려옴
             conn = ds.getConnection();
         } catch (Exception e) {
+        	System.err.println("getConnection 메소드 오류");
             e.printStackTrace();
         }
         return conn;
     }
     
     /**
-     * 사용이 끝난 자원을 커넥션 풀에 반납하는 메소드 (SELECT 쿼리용)
+     * 사용이 끝난 자원을 커넥션 풀에 반납하는 메소드(SELECT 쿼리용)
      * @param conn Connection 객체
      * @param stmt Statement 또는 PreparedStatement 객체
      * @param rs ResultSet 객체
      */
     public static void close(Connection conn, Statement stmt, ResultSet rs) {
         try {
-            // 사용한 역순으로 닫아주는 것이 안전함
             if (rs != null) rs.close();
             if (stmt != null) stmt.close();
-            if (conn != null) conn.close(); // 여기서 conn.close()는 연결을 끊는 것이 아니라, 풀에 반납하는 동작
+            if (conn != null) conn.close();
         } catch (Exception e) {
+        	System.err.println("close 메소드 오류");
             e.printStackTrace();
         }
     }
+    
     
     /**
      * 사용이 끝난 자원을 커넥션 풀에 반납하는 메소드 (INSERT, UPDATE, DELETE 쿼리용)
@@ -62,6 +66,7 @@ public class DBManager {
             if (stmt != null) stmt.close();
             if (conn != null) conn.close();
         } catch (Exception e) {
+        	System.err.println("close 메소드 오류");
             e.printStackTrace();
         }
     }

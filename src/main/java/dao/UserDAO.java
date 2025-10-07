@@ -26,6 +26,7 @@ public class UserDAO {
      * @return 로그인 성공 시 사용자 정보(User)를, 실패 시 null을 반환합니다.
      */
     public User loginUser(String name, String passwd) {
+    	// 파라미터로 입력받은 name, passwd가 일치하는 유저 검색
     	String sql="SELECT * FROM users WHERE username = ? AND password = ?";
     	User user = null;
     	Connection conn = null;
@@ -61,6 +62,7 @@ public class UserDAO {
      * @return DB에 삽입 성공 시 1, 실패 시 0을 반환합니다.
      */
     public int joinUser(User user) {
+    	// 입력받은 user 객체 데이터베이스에 삽입
     	String sql = "INSERT INTO users (username, email, password) VALUES (?, ?, ?)";
     	 int result = 0; // 0: 실패, 1: 성공
          Connection conn = null;

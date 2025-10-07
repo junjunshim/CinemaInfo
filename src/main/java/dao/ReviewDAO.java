@@ -27,7 +27,9 @@ public class ReviewDAO {
      * @return 리뷰(Review) 객체들이 담긴 리스트
      */
 	public List<Review> selectReviewsByMovieId(long movie_id){
-		// reviews, movies, users 테이블을 JOIN하여 필요한 정보를 한 번에 조회합니다.
+		// reviews, movies, users 테이블을 JOIN
+		// 파라미터로 받은 movie_id와 같은 리뷰들만
+		// review_date 내림차순으로 정렬하여 검색
 		String sql = "SELECT r.review_id, r.movie_id, r.user_id, r.rating, " +
                 "r.review_comment, r.review_date, " +
                 "m.title as movie_title, u.username as username " +
@@ -77,6 +79,9 @@ public class ReviewDAO {
      * @return 리뷰(Review) 객체들이 담긴 리스트
      */
 	public List<Review> selectReviewsByUserId(long user_id) {
+		// reviews, movies, users 테이블을 JOIN
+		// 파라미터로 받은 user_id와 같은 리뷰들만 검색
+		// review_date 내림차순으로 정렬하여 검색
         String sql = "SELECT r.review_id, r.movie_id, r.user_id, r.rating, " +
                      "r.review_comment, r.review_date, " +
                      "m.title as movie_title, u.username as username" +

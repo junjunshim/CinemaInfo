@@ -38,11 +38,11 @@ public class MovieListServlet extends HttpServlet {
 		MovieDAO mDao = MovieDAO.getInstance();
 		ReviewDAO rDao = ReviewDAO.getInstance();
 		
-		//전체 영화 목록 가져오기
+		// 전체 영화 목록 가져오기
         List<Movie> movieList = mDao.selectAllMovies();
         request.setAttribute("movieList", movieList);
         
-        //화제의 영화 가져오기
+        // 화제의 영화 가져오기
         Movie topMovie = mDao.selectTopRatedMovieFromRecent(1000);
         if(topMovie != null) {
         	List<Review> reviewList = rDao.selectReviewsByMovieId(topMovie.getMovie_id());
@@ -51,7 +51,7 @@ public class MovieListServlet extends HttpServlet {
         	request.setAttribute("reviewList", reviewList);
         }
         
-        //카테고리별 영화 가져오기
+        // 카테고리별 영화 가져오기
         List<Movie> actionMovies = mDao.selectMoviesByCategory("액션", 4);
         List<Movie> dramaMovies = mDao.selectMoviesByCategory("드라마", 4);
         List<Movie> comedyMovies = mDao.selectMoviesByCategory("코미디", 4);
@@ -64,7 +64,7 @@ public class MovieListServlet extends HttpServlet {
         request.setAttribute("mysteryMovies", mysteryMovies);
         request.setAttribute("animationMovies", animationMovies);
         
-        // 최종적으로 보여줄 페이지는 index.jsp 입니다.
+        // 최종적으로 보여줄 페이지=> index.jsp
         String url = "/index.jsp"; 
         
         RequestDispatcher dispatcher = request.getRequestDispatcher(url);

@@ -67,15 +67,15 @@ public class MovieDAO {
     }
     
     /**
-     * 최근 N일 안에 개봉한 영화 중 평균 평점이 가장 높은 영화 1편을 조회합니다.
+     * 최근 days일 안에 개봉한 영화 중 평균 평점이 가장 높은 영화 1편을 조회합니다.
      * 평점이 같을 경우, 더 최신 영화를 우선합니다.
      * @param days '최근'으로 간주할 기간 (일 단위)
      * @return 화제의 영화(Movie) 객체 1개
      */
     public Movie selectTopRatedMovieFromRecent(int days) {
-        // 1. release_date가 오늘 날짜(SYSDATE)로부터 days일 이내인 영화를 찾고
-        // 2. avg_rating(평균 평점)으로 내림차순, release_date(개봉일)로 내림차순 정렬한 뒤
-        // 3. 가장 위에 있는 1개의 데이터만 선택합니다.
+        // release_date가 SYSDATE로부터 days일 이내인 영화를 찾고
+        // avg_rating으로 내림차순, release_date(개봉일)로 내림차순 정렬
+        // 가장 위에 있는 1개의 데이터만 검색하는 쿼리
         String sql = "SELECT * FROM (" +
                      "SELECT * FROM movies " +
                      "WHERE release_date >= SYSDATE - ? " +
@@ -127,6 +127,9 @@ public class MovieDAO {
      * @return 해당 카테고리의 영화(Movie) 객체들이 담긴 리스트
      */
     public List<Movie> selectMoviesByCategory(String category, int count) {
+    	// category를 검색할 때 LIKE를 통해서 부분적으로 일치하는 칼럼을 찾는다
+    	// release_date를 기준으로 내림차순 정렬
+    	// 파라미터로 받은 count 개수만큼만 검색하는 쿼리
         String sql = "SELECT * FROM (" +
                      "SELECT * FROM movies " +
                      "WHERE category LIKE ? " +
@@ -163,6 +166,4 @@ public class MovieDAO {
         }
         return list;
     }
-    // TODO: 나중에 영화 상세 정보를 보기 위한 메소드를 이곳에 추가할 수 있습니다.
-    // public Movie selectMovieById(long movieId) { ... }
 }
