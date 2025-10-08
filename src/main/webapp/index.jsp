@@ -40,7 +40,7 @@
                 <img src="<%=request.getContextPath() %><%=movie.getImg_path() %>" alt="<%=movie.getMovie_title() %> 포스터">
                 <h2><%=movie.getMovie_title() %></h2>	
                 <p><%=movie.getDescription() %></p>
-                <a href="movieDetail.do?id=<%=movie.getMovie_id()%>">자세히 보기</a>
+                <a href="detail.do?id=<%=movie.getMovie_id()%>">자세히 보기</a>
             </div>
        	<%
     			}

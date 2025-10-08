@@ -166,4 +166,50 @@ public class MovieDAO {
         }
         return list;
     }
+    
+    /**
+     * 영화 ID를 매개변수로 받아, 해당하는 영화 한 편의 모든 정보를 조회합니다.
+     * @param movie_id 조회할 영화의 ID
+     * @return 해당 영화의 모든 정보가 담긴 Movie 객체 (없으면 null)
+     */
+    public Movie selectMovieById(long movie_id) {
+    	// movie_id와 같은 영화 검색
+        String sql = "SELECT * FROM movies WHERE movie_id = ?";
+        
+        Movie movie = null;
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+
+        try {
+            conn = DBManager.getConnection();
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setLong(1, movie_id);
+            rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                movie = new Movie();
+                
+                movie.setMovie_id(rs.getLong("movie_id"));
+                movie.setMovie_title(rs.getString("title"));
+                movie.setImg_path(rs.getString("image_path"));
+                movie.setRelease_date(rs.getDate("release_date"));
+                movie.setDuration(rs.getInt("duration"));
+                movie.setAudience(rs.getLong("audience"));
+                movie.setFilm_rating(rs.getString("film_rating"));
+                movie.setCategory(rs.getString("category"));
+                movie.setCountry(rs.getString("country"));
+                movie.setDirector(rs.getString("director"));
+                movie.setMain_actor(rs.getString("main_actor"));
+                movie.setDescription(rs.getString("description"));
+                movie.setAvg_rating(rs.getDouble("avg_rating"));
+            }
+        } catch (Exception e) {
+            System.err.println("selectMovieById 메소드 오류");
+            e.printStackTrace();
+        } finally {
+            DBManager.close(conn, pstmt, rs);
+        }
+        return movie;
+    }
 }
