@@ -6,7 +6,7 @@
     <div class="logo-nav">
         <nav class="nav-menu-left">
         	<img src="images/logo.png" alt="MovieIntro 로고" class="logo">
-            <a href="index.jsp">홈</a>
+            <a href="<%=request.getContextPath() %>/main.do">홈</a>
             <a href="movies.jsp">카테고리</a>
         </nav>
         <nav class="nav-menu-right">
