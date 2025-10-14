@@ -68,7 +68,7 @@
 				        			</dd>
 			        </dl>
       			</div>
-      			<img class="poster" src="<%=request.getContextPath() %><%=movie.getImg_path() %>" alt="<%=movie.getMovie_title() %> 포스터">
+      			<img class="poster" src="<%=request.getContextPath() %><%=movie.getImg_path() %>main.png" alt="<%=movie.getMovie_title() %> 포스터">
     		</div>
   		</div>
 	</section>
