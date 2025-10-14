@@ -37,10 +37,10 @@
 	    			Movie movie = movieList.get(i);
    		%>
             <div class="movie-card">
-                <img src="<%=request.getContextPath() %><%=movie.getImg_path() %>" alt="<%=movie.getMovie_title() %> 포스터">
+                <img src="<%=request.getContextPath() %><%=movie.getImg_path() %>main.png" alt="<%=movie.getMovie_title() %> 포스터">
                 <h2><%=movie.getMovie_title() %></h2>	
                 <p><%=movie.getDescription() %></p>
-                <a href="movieDetail.do?id=<%=movie.getMovie_id()%>">자세히 보기</a>
+                <a href="detail.do?id=<%=movie.getMovie_id()%>">자세히 보기</a>
             </div>
        	<%
     			}
@@ -56,7 +56,7 @@
     	<!-- 영화 기본 정보 -->
     		<div class="top-movie-content">
         		<div class="top-movie-img">
-            		<img src="<%=request.getContextPath() %><%=topMovie.getImg_path() %>" alt="<%=topMovie.getMovie_title() %> 포스터">
+            		<img src="<%=request.getContextPath() %><%=topMovie.getImg_path() %>main.png" alt="<%=topMovie.getMovie_title() %> 포스터">
         		</div>
         		<div class="top-movie-title">
             		<h2><%=topMovie.getMovie_title() %></h2>
@@ -112,7 +112,7 @@
 		    		for(int i = 0; i < 4; i++){
 		    			Movie actionMovie = actionMovies.get(i);
 		    %>
-		        <div class="category-movie-img"><img src="<%=request.getContextPath() %><%=actionMovie.getImg_path() %>" alt="<%=actionMovie.getMovie_title() %> 포스터"></div>
+		        <div class="category-movie-img"><img src="<%=request.getContextPath() %><%=actionMovie.getImg_path() %>main.png" alt="<%=actionMovie.getMovie_title() %> 포스터"></div>
 		        <%
 		        	}
 		        %>
@@ -134,7 +134,7 @@
 		    		for(int i = 0; i < 4; i++){
 		    			Movie dramaMovie = dramaMovies.get(i);
 		    %>
-		        <div class="category-movie-img"><img src="<%=request.getContextPath() %><%=dramaMovie.getImg_path() %>" alt="<%=dramaMovie.getMovie_title() %> 포스터"></div>
+		        <div class="category-movie-img"><img src="<%=request.getContextPath() %><%=dramaMovie.getImg_path() %>main.png" alt="<%=dramaMovie.getMovie_title() %> 포스터"></div>
 		        <%
 		        	}
 		        %>
@@ -156,7 +156,7 @@
 		    		for(int i = 0; i < 4; i++){
 		    			Movie comedyMovie = comedyMovies.get(i);
 		    %>
-		        <div class="category-movie-img"><img src="<%=request.getContextPath() %><%=comedyMovie.getImg_path() %>" alt="<%=comedyMovie.getMovie_title() %> 포스터"></div>
+		        <div class="category-movie-img"><img src="<%=request.getContextPath() %><%=comedyMovie.getImg_path() %>main.png" alt="<%=comedyMovie.getMovie_title() %> 포스터"></div>
 		        <%
 		        	}
 		        %>
@@ -178,7 +178,7 @@
 		    		for(int i = 0; i < 4; i++){
 		    			Movie mysteryMovie = mysteryMovies.get(i);
 		    %>
-		        <div class="category-movie-img"><img src="<%=request.getContextPath() %><%=mysteryMovie.getImg_path() %>" alt="<%=mysteryMovie.getMovie_title() %> 포스터"></div>
+		        <div class="category-movie-img"><img src="<%=request.getContextPath() %><%=mysteryMovie.getImg_path() %>main.png" alt="<%=mysteryMovie.getMovie_title() %> 포스터"></div>
 		        <%
 		        	}
 		        %>
@@ -200,7 +200,7 @@
 		    		for(int i = 0; i < 4; i++){
 		    			Movie animationMovie = animationMovies.get(i);
 		    %>
-		        <div class="category-movie-img"><img src="<%=request.getContextPath() %><%=animationMovie.getImg_path() %>" alt="<%=animationMovie.getMovie_title() %> 포스터"></div>
+		        <div class="category-movie-img"><img src="<%=request.getContextPath() %><%=animationMovie.getImg_path() %>main.png" alt="<%=animationMovie.getMovie_title() %> 포스터"></div>
 		        <%
 		        	}
 		        %>
