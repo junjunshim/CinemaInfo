@@ -51,12 +51,13 @@ public class MovieListServlet extends HttpServlet {
         	request.setAttribute("reviewList", reviewList);
         }
         
+        int displayNum = 5;
         // 카테고리별 영화 가져오기
-        List<Movie> actionMovies = mDao.selectMoviesByCategory("액션", 4);
-        List<Movie> dramaMovies = mDao.selectMoviesByCategory("드라마", 4);
-        List<Movie> comedyMovies = mDao.selectMoviesByCategory("코미디", 4);
-        List<Movie> mysteryMovies = mDao.selectMoviesByCategory("미스터리", 4);
-        List<Movie> animationMovies = mDao.selectMoviesByCategory("애니메이션", 4);
+        List<Movie> actionMovies = mDao.selectMoviesByCategory("액션", displayNum);
+        List<Movie> dramaMovies = mDao.selectMoviesByCategory("드라마", displayNum);
+        List<Movie> comedyMovies = mDao.selectMoviesByCategory("코미디", displayNum);
+        List<Movie> mysteryMovies = mDao.selectMoviesByCategory("미스터리", displayNum);
+        List<Movie> animationMovies = mDao.selectMoviesByCategory("애니메이션", displayNum);
         
         request.setAttribute("actionMovies", actionMovies);
         request.setAttribute("dramaMovies", dramaMovies);

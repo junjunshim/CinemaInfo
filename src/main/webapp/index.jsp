@@ -55,8 +55,8 @@
        %>
     	<!-- 영화 기본 정보 -->
     		<div class="top-movie-content">
-        		<div class="top-movie-img">
-            		<img src="<%=request.getContextPath() %><%=topMovie.getImg_path() %>main.png" alt="<%=topMovie.getMovie_title() %> 포스터">
+        		<div>
+            		<img class="top-movie-img" src="<%=request.getContextPath() %><%=topMovie.getImg_path() %>main.png" alt="<%=topMovie.getMovie_title() %> 포스터">
         		</div>
         		<div class="top-movie-title">
             		<h2><%=topMovie.getMovie_title() %></h2>
@@ -109,10 +109,10 @@
 		    <div class="category-img-container">
 		    <%
 		    	if(actionMovies != null && !actionMovies.isEmpty()){
-		    		for(int i = 0; i < 4; i++){
+		    		for(int i = 0; i < 5; i++){
 		    			Movie actionMovie = actionMovies.get(i);
 		    %>
-		        <div class="category-movie-img"><img src="<%=request.getContextPath() %><%=actionMovie.getImg_path() %>main.png" alt="<%=actionMovie.getMovie_title() %> 포스터"></div>
+		        <div class="category-movie-img"><a href="detail.do?id=<%=actionMovie.getMovie_id()%>"><img src="<%=request.getContextPath() %><%=actionMovie.getImg_path() %>main.png" alt="<%=actionMovie.getMovie_title() %> 포스터"></a></div>
 		        <%
 		        	}
 		        %>
@@ -131,10 +131,10 @@
 		    <div class="category-img-container">
 		    <%
 		    	if(dramaMovies != null && !dramaMovies.isEmpty()){
-		    		for(int i = 0; i < 4; i++){
+		    		for(int i = 0; i < 5; i++){
 		    			Movie dramaMovie = dramaMovies.get(i);
 		    %>
-		        <div class="category-movie-img"><img src="<%=request.getContextPath() %><%=dramaMovie.getImg_path() %>main.png" alt="<%=dramaMovie.getMovie_title() %> 포스터"></div>
+		        <div class="category-movie-img"><a href="detail.do?id=<%=dramaMovie.getMovie_id()%>"><img src="<%=request.getContextPath() %><%=dramaMovie.getImg_path() %>main.png" alt="<%=dramaMovie.getMovie_title() %> 포스터"></a></div>
 		        <%
 		        	}
 		        %>
@@ -153,10 +153,10 @@
 		    <div class="category-img-container">
 		    <%
 		    	if(comedyMovies != null && !comedyMovies.isEmpty()){
-		    		for(int i = 0; i < 4; i++){
+		    		for(int i = 0; i < 5; i++){
 		    			Movie comedyMovie = comedyMovies.get(i);
 		    %>
-		        <div class="category-movie-img"><img src="<%=request.getContextPath() %><%=comedyMovie.getImg_path() %>main.png" alt="<%=comedyMovie.getMovie_title() %> 포스터"></div>
+		        <div class="category-movie-img"><a href="detail.do?id=<%=comedyMovie.getMovie_id()%>"><img src="<%=request.getContextPath() %><%=comedyMovie.getImg_path() %>main.png" alt="<%=comedyMovie.getMovie_title() %> 포스터"></a></div>
 		        <%
 		        	}
 		        %>
@@ -175,10 +175,10 @@
 		    <div class="category-img-container">
 		    <%
 		    	if(mysteryMovies != null && !mysteryMovies.isEmpty()){
-		    		for(int i = 0; i < 4; i++){
+		    		for(int i = 0; i < 5; i++){
 		    			Movie mysteryMovie = mysteryMovies.get(i);
 		    %>
-		        <div class="category-movie-img"><img src="<%=request.getContextPath() %><%=mysteryMovie.getImg_path() %>main.png" alt="<%=mysteryMovie.getMovie_title() %> 포스터"></div>
+		        <div class="category-movie-img"><a href="detail.do?id=<%=mysteryMovie.getMovie_id()%>"><img src="<%=request.getContextPath() %><%=mysteryMovie.getImg_path() %>main.png" alt="<%=mysteryMovie.getMovie_title() %> 포스터"></a></div>
 		        <%
 		        	}
 		        %>
@@ -197,10 +197,10 @@
 		    <div class="category-img-container">
 		    <%
 		    	if(mysteryMovies != null && !mysteryMovies.isEmpty()){
-		    		for(int i = 0; i < 4; i++){
+		    		for(int i = 0; i < 5; i++){
 		    			Movie animationMovie = animationMovies.get(i);
 		    %>
-		        <div class="category-movie-img"><img src="<%=request.getContextPath() %><%=animationMovie.getImg_path() %>main.png" alt="<%=animationMovie.getMovie_title() %> 포스터"></div>
+		        <div class="category-movie-img"><a href="detail.do?id=<%=animationMovie.getMovie_id()%>"><img src="<%=request.getContextPath() %><%=animationMovie.getImg_path() %>main.png" alt="<%=animationMovie.getMovie_title() %> 포스터"></a></div>
 		        <%
 		        	}
 		        %>

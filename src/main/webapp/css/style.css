@@ -19,7 +19,7 @@ main {
 .movie-grid {
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 100px;
     flex-wrap: wrap;
     margin: 50px 0px;
 }
@@ -28,7 +28,7 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 220px;
+    width: 300px;
     border: 1px solid #ddd;
     border-radius: 8px;
     background: #fff;
@@ -76,14 +76,17 @@ main {
 /* top-movie 전체 레이아웃 */
 .top-movie {
     display: flex;
-    gap: 20px;
+    gap: 70px;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     margin: 100px auto;
-    max-width: 1000px;
+    max-width: 80%;
 }
 
 /* 왼쪽 영역: 영화 정보 */
 .top-movie-content {
     display: flex;
+    margin: 30px 0px 0px 20px;
     flex-direction: column;
     align-items: center;
     flex: 0 0 auto; /* 크기 고정 */
@@ -91,9 +94,8 @@ main {
 
 /* 영화 포스터 */
 
-.top-movie-img img {
-    width: 175px;
-    height: 250px;
+.top-movie-img {
+    width: 250px;
     object-fit: cover;
     border-radius: 6px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
@@ -190,8 +192,7 @@ main {
 
 /* 개별 영화 이미지 */
 .category-movie-img img {
-    width: 250px;
-    height: 175px;
+    width: 170px;
     object-fit: cover;
     border-radius: 6px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
