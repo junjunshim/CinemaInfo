@@ -4,11 +4,11 @@
 -- =================================================================
 
 -- 1. 사용자 데이터 입력
-INSERT INTO users (username, email, password) VALUES ('cinephile', 'cine@phile.com', 'pass1234');
-INSERT INTO users (username, email, password) VALUES ('film_critic_wannabe', 'critic@wannabe.com', 'pass5678');
-INSERT INTO users (username, email, password) VALUES ('casual_viewer', 'viewer@home.com', 'pass9876');
-INSERT INTO users (username, email, password) VALUES ('horror_mania', 'ghost@love.com', 'pass1111');
-INSERT INTO users (username, email, password) VALUES ('action_junkie', 'boom@action.com', 'pass2222');
+INSERT INTO users (username, nickname, email, password) VALUES ('cinephile', 'movielover', 'cine@phile.com', 'pass1234');
+INSERT INTO users (username, nickname, email, password) VALUES ('film_critic_wannabe', 'storyfighter', 'critic@wannabe.com', 'pass5678');
+INSERT INTO users (username, nickname, email, password) VALUES ('casual_viewer', 'wantauthor', 'viewer@home.com', 'pass9876');
+INSERT INTO users (username, nickname, email, password) VALUES ('horror_mania', 'heavyrain', 'ghost@love.com', 'pass1111');
+INSERT INTO users (username, nickname, email, password) VALUES ('action_junkie', 'bananaking', 'boom@action.com', 'pass2222');
 
 -- 2. 영화 및 리뷰 데이터 입력
 DECLARE

@@ -16,8 +16,9 @@
 
     // 실패 시 null 반환
     if (loginUser != null) {
-        //로그인 성공 시, 세션에 id값 설정
+        //로그인 성공 시, 세션에 id값 설정 및 닉네임값 설정
         session.setAttribute("id", loginUser.getUserName());
+        session.setAttribute("nickName", loginUser.getNickName());
         
         //메인 페이지 이동
         String contextPath = request.getContextPath();
