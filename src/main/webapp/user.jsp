@@ -34,7 +34,7 @@
 				</div>
 				<div class="btnbox">
 					<button type="button" class="bt"
-						onclick="location.href = 'profile.jsp'">프로필 수정</button>
+						onclick="location.href = '<%=request.getContextPath() %>/profile.do'">프로필 수정</button>
 				</div>
 				<button type="button" class="btn" id="logout" onclick="location.href = 'logout.jsp'">로그아웃</button>
 			</div>

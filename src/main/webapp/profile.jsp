@@ -1,5 +1,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <meta charset="UTF-8">
+<%@ page import="dto.User" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+
+<%
+	User userInfo = (User)request.getAttribute("userInfo");
+	
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy년 MM월 dd일");
+%>
+
 <html>
 <head>
 <title>마이페이지</title>
@@ -12,22 +21,20 @@
 	<div class="profile-box">
 
 
-		<form action="user.jsp" name="profileform" id="profileform"
-			method="post">
-			<img src="user.png" alt="userimage" class="user">
-
-
-
+		
+			<h4><%=userInfo.getNickName() %>님</h4>
+			<p>아이디 : <%=userInfo.getUserName() %> | 가입일 : <%=sdf.format(userInfo.getJoin_date()) %></p>
+			<hr>
+			<br>
+		<form action="profile_process.jsp" name="profileform" id="profileform" method="post">
 			<div class="btnbox">
-				<h5 style="margin-right: 370px; margin-left: 5px;">-</h5>
-
-				<h5 style="margin-right: 400px; margin-bottom: 5px;">이름 변경</h5>
-				<input type="text" class="bt" id="name">
+	 			<h5 style="margin-right: 400px; margin-bottom: 5px;">이름 변경</h5>
+				<input type="text" class="bt" id="name" name="newNickname">
 				<div id="name-error" class="error-message"></div>
 				<h5 style="margin-right: 370px; margin-bottom: 5px;">비밀번호 변경</h5>
-				<input type="password" class="bt" placeholder="이전 비밀번호">
+				<input type="password" class="bt" name="oldPasswd" placeholder="이전 비밀번호">
 				<div class="error-message"></div>
-				<input type="password" id="passwd" class="bt" placeholder="변경할 비밀번호">
+				<input type="password" id="passwd" class="bt" name="newPasswd" placeholder="변경할 비밀번호">
 				<div id="passwd-error" class="error-message"></div>
 				<input type="password" id="pass" class="bt" placeholder="비밀번호 확인">
 				<div id="pass-error" class="error-message"></div>

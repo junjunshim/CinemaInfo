@@ -123,4 +123,99 @@ public class UserDAO {
         }
         return user;
     }
+    
+    /**
+     * 사용자의 현재 비밀번호가 일치하는지 확인하는 메소드 (SELECT만 수행)
+     * @param username 현재 로그인한 사용자 아이디
+     * @param oldPassword 사용자가 입력한 '이전 비밀번호'
+     * @return 일치하면 true, 불일치하면 false
+     */
+    public boolean checkPassword(String username, String oldPassword) {
+        String sql = "SELECT password FROM users WHERE username = ?";
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        boolean isMatch = false;
+
+        try {
+            conn = DBManager.getConnection();
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, username);
+            rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                if (rs.getString("password").equals(oldPassword)) {
+                    isMatch = true;
+                }
+            }
+        } catch (Exception e) {
+            System.err.println("checkPassword 메소드 오류");
+            e.printStackTrace();
+        } finally {
+            DBManager.close(conn, pstmt, rs); 
+        }
+        return isMatch;
+    }
+
+    /**
+     * 사용자의 프로필 (닉네임, 비밀번호)을 업데이트합니다. (UPDATE만 수행)
+     * 값이 비어있지 않은 필드만 선택적으로 업데이트하는 동적 SQL을 사용합니다.
+     * @param username 현재 로그인한 사용자 아이디
+     * @param newNickname 변경할 새 닉네임 (변경 안 하면 빈 문자열)
+     * @param newPassword 변경할 새 비밀번호 (변경 안 하면 빈 문자열)
+     * @return 업데이트 성공 시 1, 실패 시 0
+     */
+    public int updateProfile(String username, String newNickname, String newPassword) {
+        StringBuilder sql = new StringBuilder("UPDATE users SET ");
+        
+        boolean hasNickname = (newNickname != null && !newNickname.isEmpty());
+        boolean hasPassword = (newPassword != null && !newPassword.isEmpty());
+
+        
+        if (hasNickname && !hasPassword) {
+            sql.append("nickname = ? ");
+        } 
+        
+        else if (!hasNickname && hasPassword) {
+            sql.append("password = ? ");
+        }
+        
+        else if (hasNickname && hasPassword) {
+            sql.append("nickname = ?, password = ? ");
+        } 
+        
+        else {
+            return 0;
+        }
+
+        sql.append("WHERE username = ?");
+
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        int result = 0;
+        int paramIndex = 1;
+
+        try {
+            conn = DBManager.getConnection();
+            pstmt = conn.prepareStatement(sql.toString());
+
+            if (hasNickname) {
+                pstmt.setString(paramIndex++, newNickname);
+            }
+            if (hasPassword) {
+                pstmt.setString(paramIndex++, newPassword);
+            }
+            
+            pstmt.setString(paramIndex, username);
+            
+            result = pstmt.executeUpdate();
+
+        } catch (Exception e) {
+            System.err.println("updateProfile 메소드 오류");
+            e.printStackTrace();
+        } finally {
+            DBManager.close(conn, pstmt);
+        }
+        return result;
+    }
 }
