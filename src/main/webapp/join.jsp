@@ -3,58 +3,12 @@
 <html>
 <head>
 <title>로그인</title>
-<style>
-  .joinform{
-	text-align :center;
-	width : 500px;
-	margin : 100px auto;
-	height : 700px;
-	padding : 30px;
-	margin-top : 30px;
-	/*border : 0.2px solid rgba(0, 0, 0, 0.2);*/
-	border-radius : 20px;
-	font-size : 16px;
-	display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color : white;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  }
-  body{
-  	background-color : rgba(188, 188, 188, 0.2);
-  }
-  input{
-  	height : 55px;
-  	width : 400px;
-  	margin : 2px;
-  	font-size : 17px;
-  	border : 0.1px solid rgba(0, 0, 0, 0.4);
-  	border-radius : 5px;
-  	color : grey;
-  	background-color :rgba(128, 128, 128, 0.1);
-  	
-  }
-  .j_button{
-  	background-color : black;
-  	color : white;
-  	font-size : 25px;
-  	 
-  }
-   .textbox{
-  	  padding : 10px;
-  	  
-	  margin-bottom : 4px; 
-  }
-  .error-message{
-  	color : red;
-  	text-align : left;
-	font-size : 0.8em;
-	height: 18px; 
-    line-height: 1.2;
-  }
-</style>
+<link rel="stylesheet" href="css/join.css">
+<link rel="stylesheet" href="css/header.css">
+<link rel="stylesheet" href="css/footer.css">
 </head>
 <body>
+	<jsp:include page="header.jsp" />
 	<form action = "login.jsp" id = "join-form" name = "join-form" method = "post">
 	<div class = "joinform">
 		<h1>회원가입</h1>
@@ -71,6 +25,9 @@
 			
 			<p><input type = "password" id = "pass" placeholder = "비밀번호 확인">
 			<div id="pass-error" class="error-message"></div>
+			
+			<p><input type = "email" id = "email" name = "email" placeholder = "이메일">
+			<div id = "email-error" class = "error-message"></div>
 		</div>
 		<p><input type = "submit" value = "가입하기" class = "j_button">
 	</div>
@@ -82,18 +39,27 @@
       const id = document.getElementById("id");
       const passwd = document.getElementById("passwd");
       const pass = document.getElementById("pass");
+      const email = document.getElementById("email");
       const nameError = document.getElementById("name-error");
       const idError = document.getElementById("id-error");
       const passwdError = document.getElementById("passwd-error");
       const passError = document.getElementById("pass-error");
+      const emailError = document.getElementById("email-error");
 
       form.addEventListener("submit", function(e) {
         e.preventDefault();
 
+        nameError.textContent = "";
+        idError.textContent = "";
+        passwdError.textContent = "";
+        passError.textContent = "";
+        emailError.textContent = "";
+        
         const nametrim = name.value.trim();
         const idtrim = id.value.trim();
 		const passwdtrim = passwd.value.trim();
 		const passtrim = pass.value.trim();
+		const emailtrim = email.value.trim();
 		
         let valid = true;
         
@@ -112,9 +78,7 @@
 		else {
 				nameError.textContent = "";
 	        }
-		
-		
-		
+			
         if (idtrim === "") {
           idError.textContent = "아이디를 입력해주세요.";
           valid = false;
@@ -149,7 +113,6 @@
           passwdError.textContent = "";
         }
         
-        
        if(passtrim === ""){
     	   passError.textContent = "비밀번호를 입력해주세요.";
     	   valid = false;
@@ -162,6 +125,18 @@
     	   passError.textContent = "";
        }
         
+       if(emailtrim === ""){
+    	   emailError.textContent = "이메일을 입력해주세요.";
+    	   valid = false;
+       }
+       else if(!/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(emailtrim)){
+    	   emailError.textContent = "형식이 올바르지 않습니다.";
+    	   valid = false;
+       }
+       else{
+    	   emailError.textContent = "";
+       }
+       
         if (valid) {
           console.log("로그인 시도");
           form.submit();
@@ -169,5 +144,6 @@
       });
     });
   </script>
+  <jsp:include page="footer.jsp" />
 </body>
 </html>
