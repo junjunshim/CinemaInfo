@@ -1,6 +1,11 @@
 /* 기본 */
 *{box-sizing:border-box}
-body{margin:0;background:#000;color:#fff;font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans KR",sans-serif}
+body{
+  margin:0;
+  background-color:rgba(188,188,188,0.2); /* 밝은 회색톤 */
+  color:#111;
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans KR",sans-serif
+}
 a{color:inherit;text-decoration:none}
 .container{max-width:1000px;margin:24px auto;padding:0 16px}
 
@@ -9,38 +14,47 @@ a{color:inherit;text-decoration:none}
 
 /* 안내 노트 */
 .note{padding:10px 12px;border-radius:8px;margin:10px auto 0;max-width:1000px}
-.note-warn{background:#1a0f0f;border:1px solid #4a1f1f;color:#ffbcbc}
+.note-warn{background:#f8eaea;border:1px solid #e1a1a1;color:#b33}
 
 /* 상단 히어로 */
-.hero{background:#000;padding:28px 0;border-bottom:1px solid #111}
-.hero-inner{display:grid;grid-template-columns:1.3fr 0.7fr;gap:28px;align-items:center}
+.hero{
+  background:transparent;
+  padding:28px 0;
+  border-bottom:1px solid #ddd
+}
+.hero-inner{
+  display:grid;
+  grid-template-columns:1.3fr 0.7fr;
+  gap:28px;
+  align-items:center
+}
 .movie-title{margin:0 0 8px;font-size:36px;font-weight:800}
 .movie-title.placeholder{color:#888}
-.title-en{margin:0 0 18px;color:#9aa}
-.back-link{display:inline-block;margin-bottom:6px;color:#9aa}
+.title-en{margin:0 0 18px;color:#666}
+.back-link{display:inline-block;margin-bottom:6px;color:#666}
 .back-link:hover{text-decoration:underline}
 
-/* 메타(개봉/시간/장르...) — 간격/크기 살짝 업 */
+/* 메타(개봉/시간/장르...) */
 .meta{
   display:grid;
-  grid-template-columns:110px 1fr; /* 라벨 칸 약간 넓힘 */
-  row-gap:12px;                    /* 위아래 틈 증가 */
+  grid-template-columns:110px 1fr;
+  row-gap:12px;
   column-gap:10px;
-  color:#ddd;
-  font-size:16px;                  /* 전체 크기 살짝 업 */
+  color:#444;
+  font-size:16px
 }
-.meta dt{color:#9ca3af}
+.meta dt{color:#777}
 .meta dd{margin:0}
 
 /* 포스터 */
 .poster{
-  width:340px;                     /* 살짝 키움 */
+  width:240px; /* 작게 조정 */
   max-width:100%;
   aspect-ratio:3/4;
   object-fit:cover;
   border-radius:12px;
-  border:1px solid #333;
-  box-shadow:0 6px 20px rgba(0,0,0,.45);
+  border:1px solid #ccc;
+  box-shadow:0 3px 10px rgba(0,0,0,.15);
   justify-self:end
 }
 @media (max-width:900px){
@@ -49,44 +63,47 @@ a{color:inherit;text-decoration:none}
 }
 
 /* 섹션 */
-.section{padding:28px 0;border-top:1px solid #111}
+.section{
+  padding:28px 0;
+  border-top:1px solid #ddd;
+  background:transparent
+}
 .section h3{margin:0 0 14px;font-size:22px}
-.synopsis{color:#ddd;line-height:1.7}
+.synopsis{color:#333;line-height:1.7}
 
 /* 사진/영상 */
 .media-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
-.media-grid img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:10px;border:1px solid #333}
+.media-grid img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:10px;border:1px solid #ccc}
 .video-16x9{position:relative;width:100%;max-width:1000px;padding-top:56.25%}
 .video-16x9 iframe{position:absolute;inset:0;width:100%;height:100%;border:0;border-radius:12px}
 
 /* 리뷰 작성 */
 .review-form{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:16px}
 .star-picker{position:relative;display:inline-block;font-size:28px;line-height:1;width:140px}
-.star-picker .bg{color:#333}
+.star-picker .bg{color:#ccc}
 .star-picker .fill{position:absolute;inset:0 auto 0 0;width:0;overflow:hidden;white-space:nowrap;color:#ffcc00;pointer-events:none}
 .rating-range{width:180px;accent-color:#ffcc00}
-.rating-text{color:#ddd;margin-left:4px;min-width:64px;display:inline-block}
-.review-input{height:36px;padding:0 10px;border:1px solid #333;border-radius:8px;background:#111;color:#fff}
+.rating-text{color:#555;margin-left:4px;min-width:64px;display:inline-block}
+.review-input{height:36px;padding:0 10px;border:1px solid #ccc;border-radius:8px;background:#fff;color:#111}
 .review-input.wide{width:320px}
 .btn-primary{height:36px;padding:0 14px;border-radius:8px;background:#e6005c;color:#fff;font-weight:600;border:0}
 .btn-danger{height:30px;padding:0 10px;border-radius:6px;background:#ff4d4f;color:#fff;border:0}
 
 /* 리뷰 목록 */
-.review-summary{margin:8px 0 14px;color:#ddd}
+.review-summary{margin:8px 0 14px;color:#444}
 .review-summary .avg-star{color:#ffcc00;margin:0 2px}
 .review-summary .avg-num{font-weight:800;margin-right:4px}
 .review-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
-.review-item{display:grid;grid-template-columns:140px 1fr 80px;gap:12px;padding:12px;border:1px solid #151515;border-radius:10px;background:#0a0a0a}
+.review-item{display:grid;grid-template-columns:140px 1fr 80px;gap:12px;padding:12px;border:1px solid #ddd;border-radius:10px;background:#f9f9f9}
 .review-item .left{display:flex;align-items:center;gap:8px}
 .review-item .stars{position:relative;font-size:22px;width:110px}
-.review-item .stars .bg{color:#333}
+.review-item .stars .bg{color:#ddd}
 .review-item .stars .fill{position:absolute;inset:0 auto 0 0;width:var(--w,0%);overflow:hidden;color:#ffcc00;white-space:nowrap}
-.review-item .score{color:#ddd;width:42px;text-align:right}
-.review-item .meta{color:#9aa;font-size:14px}
-.review-item .content{color:#eee;margin-top:4px}
+.review-item .score{color:#444;width:42px;text-align:right}
+.review-item .meta{color:#777;font-size:14px}
+.review-item .content{color:#222;margin-top:4px}
 .review-item .right{display:flex;align-items:center;justify-content:flex-end}
 @media (max-width:700px){
   .review-item{grid-template-columns:1fr}
   .review-item .right{justify-content:flex-start}
 }
-
