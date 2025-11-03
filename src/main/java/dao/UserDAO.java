@@ -44,6 +44,7 @@ public class UserDAO {
             	user = new User();
             	user.setUser_id(rs.getLong("user_id"));
             	user.setUserName(rs.getString("username"));
+            	user.setNickName(rs.getString("nickName"));
             	user.setUserEmail(rs.getString("email"));
             	user.setJoin_date(rs.getDate("join_date"));
             }
@@ -63,7 +64,7 @@ public class UserDAO {
      */
     public int joinUser(User user) {
     	// 입력받은 user 객체 데이터베이스에 삽입
-    	String sql = "INSERT INTO users (username, email, password) VALUES (?, ?, ?)";
+    	String sql = "INSERT INTO users (username, nickname, email, password) VALUES (?, ?,  ?, ?)";
     	 int result = 0; // 0: 실패, 1: 성공
          Connection conn = null;
          PreparedStatement pstmt = null;
@@ -72,8 +73,9 @@ public class UserDAO {
         	 conn = DBManager.getConnection();
              pstmt = conn.prepareStatement(sql);
              pstmt.setString(1, user.getUserName());
-             pstmt.setString(2, user.getUserEmail());
-             pstmt.setString(3, user.getUserPasswd());
+             pstmt.setString(2, user.getNickName());
+             pstmt.setString(3, user.getUserEmail());
+             pstmt.setString(4, user.getUserPasswd());
              
              result = pstmt.executeUpdate();
          } catch(Exception e) {
@@ -83,5 +85,137 @@ public class UserDAO {
         	 DBManager.close(conn, pstmt);
          }
          return result;
+    }
+    
+
+    /**
+     * 사용자 아이디를 매개변수로 받아, 해당하는 사용자의 모든 정보를 조회합니다.
+     * (마이페이지에서 email, join_date 등을 표시할 때 사용)
+     * @param username 조회할 사용자의 아이디
+     * @return 해당 사용자의 모든 정보가 담긴 User 객체 (없으면 null)
+     */
+    public User selectUserByUsername(String username) {
+        String sql = "SELECT * FROM users WHERE username = ?";
+        User user = null;
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+
+        try {
+            conn = DBManager.getConnection();
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, username);
+            rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                user = new User();
+                user.setUser_id(rs.getLong("user_id"));
+                user.setUserName(rs.getString("username"));
+                user.setNickName(rs.getString("nickname"));
+                user.setUserEmail(rs.getString("email"));
+                user.setJoin_date(rs.getDate("join_date"));
+            }
+        } catch (Exception e) {
+            System.err.println("selectUserByUsername 메소드 오류");
+            e.printStackTrace();
+        } finally {
+            DBManager.close(conn, pstmt, rs);
+        }
+        return user;
+    }
+    
+    /**
+     * 사용자의 현재 비밀번호가 일치하는지 확인하는 메소드 (SELECT만 수행)
+     * @param username 현재 로그인한 사용자 아이디
+     * @param oldPassword 사용자가 입력한 '이전 비밀번호'
+     * @return 일치하면 true, 불일치하면 false
+     */
+    public boolean checkPassword(String username, String oldPassword) {
+        String sql = "SELECT password FROM users WHERE username = ?";
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        boolean isMatch = false;
+
+        try {
+            conn = DBManager.getConnection();
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, username);
+            rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                if (rs.getString("password").equals(oldPassword)) {
+                    isMatch = true;
+                }
+            }
+        } catch (Exception e) {
+            System.err.println("checkPassword 메소드 오류");
+            e.printStackTrace();
+        } finally {
+            DBManager.close(conn, pstmt, rs); 
+        }
+        return isMatch;
+    }
+
+    /**
+     * 사용자의 프로필 (닉네임, 비밀번호)을 업데이트합니다. (UPDATE만 수행)
+     * 값이 비어있지 않은 필드만 선택적으로 업데이트하는 동적 SQL을 사용합니다.
+     * @param username 현재 로그인한 사용자 아이디
+     * @param newNickname 변경할 새 닉네임 (변경 안 하면 빈 문자열)
+     * @param newPassword 변경할 새 비밀번호 (변경 안 하면 빈 문자열)
+     * @return 업데이트 성공 시 1, 실패 시 0
+     */
+    public int updateProfile(String username, String newNickname, String newPassword) {
+        StringBuilder sql = new StringBuilder("UPDATE users SET ");
+        
+        boolean hasNickname = (newNickname != null && !newNickname.isEmpty());
+        boolean hasPassword = (newPassword != null && !newPassword.isEmpty());
+
+        
+        if (hasNickname && !hasPassword) {
+            sql.append("nickname = ? ");
+        } 
+        
+        else if (!hasNickname && hasPassword) {
+            sql.append("password = ? ");
+        }
+        
+        else if (hasNickname && hasPassword) {
+            sql.append("nickname = ?, password = ? ");
+        } 
+        
+        else {
+            return 0;
+        }
+
+        sql.append("WHERE username = ?");
+
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        int result = 0;
+        int paramIndex = 1;
+
+        try {
+            conn = DBManager.getConnection();
+            pstmt = conn.prepareStatement(sql.toString());
+
+            if (hasNickname) {
+                pstmt.setString(paramIndex++, newNickname);
+            }
+            if (hasPassword) {
+                pstmt.setString(paramIndex++, newPassword);
+            }
+            
+            pstmt.setString(paramIndex, username);
+            
+            result = pstmt.executeUpdate();
+
+        } catch (Exception e) {
+            System.err.println("updateProfile 메소드 오류");
+            e.printStackTrace();
+        } finally {
+            DBManager.close(conn, pstmt);
+        }
+        return result;
     }
 }

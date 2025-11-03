@@ -9,6 +9,8 @@ public class User implements Serializable {
 	private long user_id;
 	//유저 이름(유저 아이디)
 	private String userName;
+	//유저 닉네임(이름)
+	private String nickName;
 	//유저 passwd
 	private String userPasswd;
 	//유저 이메일
@@ -46,7 +48,15 @@ public class User implements Serializable {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-
+	
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
+	}
+	
+	public String getNickName() {
+		return nickName;
+	}
+	
 	public String getUserPasswd() {
 		return userPasswd;
 	}

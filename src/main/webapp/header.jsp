@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
 	String userId = (String)session.getAttribute("id");
+	String nickName = (String)session.getAttribute("nickName");
 %>
 <header class="header">
     <div class="logo-nav">
@@ -22,7 +23,7 @@
         	else{        	
         	%>
         	
-        	<a href="user.jsp"><%=userId %>님</a>
+        	<a href="<%=request.getContextPath() %>/userPage.do"><%=nickName %>님</a>
         	<a href="logout.jsp">로그아웃</a>
         	
         	<%
