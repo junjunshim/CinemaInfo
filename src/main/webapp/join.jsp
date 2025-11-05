@@ -45,10 +45,12 @@
       const id = document.getElementById("id");
       const passwd = document.getElementById("passwd");
       const pass = document.getElementById("pass");
+      const email = document.getElementById("email");
       const nameError = document.getElementById("name-error");
       const idError = document.getElementById("id-error");
       const passwdError = document.getElementById("passwd-error");
       const passError = document.getElementById("pass-error");
+      const emailError = document.getElementById("email-error");
 
       form.addEventListener("submit", function(e) {
         e.preventDefault();
@@ -57,6 +59,7 @@
         const idtrim = id.value.trim();
 		const passwdtrim = passwd.value.trim();
 		const passtrim = pass.value.trim();
+		const emailtrim = email.value.trim();
 		
         let valid = true;
         
@@ -64,8 +67,8 @@
 			nameError.textContent = "이름을 입력해주세요.";
 			valid = false;
 		}
-		else if(!/^[가-힣]+$/.test(nametrim)){
-			nameError.textContent = "이름은 한글만 입력가능합니다.";
+		else if(!/^[가-힣]+$/.test(nametrim) && !/^[a-zA-Z]+$/.test(nametrim)){
+			nameError.textContent = "이름은 한글 또는 영문만 입력가능합니다.";
 			valid = false;
 		}
 		else if(nametrim.length < 2){
@@ -125,6 +128,19 @@
     	   passError.textContent = "";
        }
         
+       if(emailtrim === ""){
+    	   emailError.textContent = "이메일을 입력해주세요.";
+    	   valid = false;
+       }
+       else if(!/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(emailtrim)){
+    	   emailError.textContent = "형식이 올바르지 않습니다.";
+    	   valid = false;
+       }
+       else{
+    	   emailError.textContent = "";
+       }
+
+       
         if (valid) {
           console.log("로그인 시도");
           form.submit();

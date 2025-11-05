@@ -65,8 +65,8 @@
        
         if(nametrim !== "")
         {
-        	if(!/^[가-힣]+$/.test(nametrim)){
-    			nameError.textContent = "이름은 한글만 입력가능합니다.";
+        	if(!/^[가-힣]+$/.test(nametrim) && !/^[a-zA-Z]+$/.test(nametrim)){
+    			nameError.textContent = "이름은 한글 또는 영문만 입력가능합니다.";
     			valid = false;
     		}
     		else if(nametrim.length < 2){
