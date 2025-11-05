@@ -7,12 +7,14 @@
     request.setCharacterEncoding("UTF-8");
 
     //넘어온 회원가입 정보 가져오기
+    String nickName = request.getParameter("name");
     String username = request.getParameter("id");
     String password = request.getParameter("passwd");
     String email = request.getParameter("email");
 
     // 회원가입을 위한 User 객체 생성 및 데이터 입력 
     User user = new User();
+    user.setNickName(nickName);
     user.setUserName(username);
     user.setUserPasswd(password);
     user.setUserEmail(email);
