@@ -86,8 +86,8 @@
           valid = false;
         }
         
-        else if(!/^[a-zA-Z]+$/.test(idtrim)){
-        	idError.textContent = "아이디는 영문만 가능합니다.";
+        else if(!/^[a-zA-Z]+/.test(idtrim)){
+        	idError.textContent = "아이디는 영문으로 시작해야합니다.";
         	valid = false;
         }
         else if (idtrim.length > 11){
