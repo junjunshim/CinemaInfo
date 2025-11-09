@@ -84,7 +84,7 @@ public class ReviewDAO {
 		// review_date 내림차순으로 정렬하여 검색
         String sql = "SELECT r.review_id, r.movie_id, r.user_id, r.rating, " +
                      "r.review_comment, r.review_date, " +
-                     "m.title as movie_title, u.username as username" +
+                     "m.title as movie_title, u.username as username " +
                      "FROM reviews r " +
                      "JOIN movies m ON r.movie_id = m.movie_id " +
                      "JOIN users u ON r.user_id = u.user_id " +
