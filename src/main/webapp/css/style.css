@@ -28,7 +28,7 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 300px;
+    width: 280px;
     border: 1px solid #ddd;
     border-radius: 8px;
     background: #fff;
@@ -51,7 +51,7 @@ main {
 
 .movie-card h2 {
     margin: 10px 0 5px;
-    font-size: 18px;
+    font-size: 27px;
 }
 
 .movie-card p {
@@ -95,7 +95,7 @@ main {
 /* 영화 포스터 */
 
 .top-movie-img {
-    width: 250px;
+    width: 280px;
     object-fit: cover;
     border-radius: 6px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
@@ -103,10 +103,13 @@ main {
 
 /* 영화 제목 */
 .top-movie-title {
-    margin-top: 10px;
     text-align: center;
     width: 175px; /* 포스터 크기에 맞춤 */
     word-wrap: break-word;
+}
+
+.top-movie-title h2{
+	font-size: 25px;
 }
 
 /* 오른쪽 영역: 리뷰 */
@@ -118,7 +121,7 @@ main {
 
 /* 리뷰 제목 */
 .top-review-title {
-    font-size: 1.2em;
+    font-size: 1.7em;
     font-weight: bold;
     margin-bottom: 15px;
 }
@@ -139,6 +142,7 @@ main {
     border: 1px solid #ddd;
     border-radius: 6px;
     background: #fafafa;
+    max-width: 90%;
 }
 
 .top-review-score {
@@ -156,7 +160,7 @@ main {
     display: flex;
     flex-direction: column;
     margin: 80px auto;
-    max-width: 1200px;
+    max-width: 80%;
 }
 
 /* 상단: 카테고리명 + 더보기 */
@@ -168,7 +172,7 @@ main {
 }
 
 .category-title {
-    font-size: 1.5em;
+    font-size: 1.7em;
     font-weight: bold;
 }
 
