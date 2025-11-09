@@ -13,24 +13,26 @@
 <head>
 <meta charset="UTF-8">
 <title>마이페이지</title>
-<link rel="stylesheet" href="css/user.css">
 <link rel="stylesheet" href="css/header.css">
+<link rel="stylesheet" href="css/user.css">
 <link rel="stylesheet" href="css/footer.css">
 </head>
 <body>
 	<jsp:include page="header.jsp" />
 	<div class="profile-box">
+		<h4><%=userInfo.getNickName() %>님</h4>
+		<p>아이디 : <%=userInfo.getUserName() %> | 가입일 : <%=sdf.format(userInfo.getJoin_date()) %></p>
+		<hr>
+		<br>
 		<form name="form-1" method="post">
-			<h4><%=userInfo.getNickName() %>님</h4>
-			<p>아이디 : <%=userInfo.getUserName() %> | 가입일 : <%=sdf.format(userInfo.getJoin_date()) %></p>
-			<hr>
-			<br>
 			<div>
 				<div class="btnbox">
-					<button type="button" onclick="" class="bt">작성한 리뷰</button>
+					<button type="button" class="bt"
+						onclick="location.href = '<%= request.getContextPath() %>/userReview.do'">작성한 리뷰</button>
 				</div>
 				<div class="btnbox">
-					<button type="button" onclick="" class="bt">보고싶어요한 영화</button>
+				<button type="button" class="bt"
+						onclick="location.href = '<%= request.getContextPath() %>/userMovie.do'">보고싶어요한 영화</button>
 				</div>
 				<div class="btnbox">
 					<button type="button" class="bt"

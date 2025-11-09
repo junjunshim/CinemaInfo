@@ -19,13 +19,10 @@
 <body>
 	<jsp:include page="header.jsp" />
 	<div class="profile-box">
-
-
-		
-			<h4><%=userInfo.getNickName() %>님</h4>
-			<p>아이디 : <%=userInfo.getUserName() %> | 가입일 : <%=sdf.format(userInfo.getJoin_date()) %></p>
-			<hr>
-			<br>
+		<h4><%=userInfo.getNickName() %>님</h4>
+		<p>아이디 : <%=userInfo.getUserName() %> | 가입일 : <%=sdf.format(userInfo.getJoin_date()) %></p>
+		<hr>
+		<br>
 		<form action="profile_process.jsp" name="profileform" id="profileform" method="post">
 			<div class="btnbox">
 	 			<h5 style="margin-right: 400px; margin-bottom: 5px;">이름 변경</h5>
