@@ -6,6 +6,9 @@
 User userInfo = (User) request.getAttribute("userInfo");
 List<Review> reviewList = (List<Review>) request.getAttribute("reviewList");
 
+int currentPage = (Integer) request.getAttribute("currentPage");
+int totalPages = (Integer) request.getAttribute("totalPages");
+
 SimpleDateFormat sdf = new SimpleDateFormat("yyyy년 MM월 dd일");
 %>
 <!DOCTYPE html>
@@ -57,7 +60,28 @@ SimpleDateFormat sdf = new SimpleDateFormat("yyyy년 MM월 dd일");
 				%>
 			</div>
 		</section>
+		<div class="pagination">
+                <%-- '이전' 버튼: 1페이지보다 클 때만 표시 --%>
+                <% if (currentPage > 1) { %>
+                    <a href="userReview.do?page=<%= currentPage - 1 %>">&laquo;</a>
+                <% } %>
 
+                <%-- 페이지 번호 링크: 1부터 totalPages까지 반복 --%>
+                <% for (int i = 1; i <= totalPages; i++) { %>
+                    <% if (i == currentPage) { %>
+                        <%-- 현재 페이지는 링크 없이 강조만 --%>
+                        <a href="#" class="active"><%= i %></a> 
+                    <% } else { %>
+                        <%-- 다른 페이지는 링크 부여 --%>
+                        <a href="userReview.do?page=<%= i %>"><%= i %></a>
+                    <% } %>
+                <% } %>
+
+                <%-- '다음' 버튼: 마지막 페이지보다 작을 때만 표시 --%>
+                <% if (currentPage < totalPages) { %>
+                    <a href="userReview.do?page=<%= currentPage + 1 %>">&raquo;</a>
+                <% } %>
+            </div>
 		<%
 		} else {
 		%>

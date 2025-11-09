@@ -46,14 +46,24 @@ public class UserReviewServlet extends HttpServlet {
 			return;
 		}
 		
+		String pageStr = request.getParameter("page");
+        int currentPage = (pageStr == null) ? 1 : Integer.parseInt(pageStr);
+        int reviewsPerPage = 5;
+        
 		UserDAO uDao = UserDAO.getInstance();
         ReviewDAO rDao = ReviewDAO.getInstance();
         
         User user = uDao.selectUserByUsername(username);
-        List<Review> reviewList = rDao.selectReviewsByUserId(user.getUser_id());
+        List<Review> reviewList = rDao.selectReviewsByUserId(user.getUser_id(), currentPage, reviewsPerPage);
+        
+        int totalReviews = rDao.getReviewCountByUserId(user.getUser_id());
+        int totalPages = (int) Math.ceil((double) totalReviews / reviewsPerPage);
         
         request.setAttribute("userInfo", user);
         request.setAttribute("reviewList", reviewList);
+        
+        request.setAttribute("currentPage", currentPage);
+        request.setAttribute("totalPages", totalPages);
         
         String url = "/user_review.jsp"; 
         RequestDispatcher dispatcher = request.getRequestDispatcher(url);

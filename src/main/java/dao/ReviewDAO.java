@@ -76,9 +76,11 @@ public class ReviewDAO {
 	/**
      * 데이터베이스에 있는 특정 유저의 리뷰들을 최신순으로 가져오는 메소드
      * @param user_id 조회할 유저의 ID
+     * @param page      요청하는 페이지 번호 (1, 2, 3...)
+     * @param reviewsPerPage 페이지 당 리뷰 수 (5)
      * @return 리뷰(Review) 객체들이 담긴 리스트
      */
-	public List<Review> selectReviewsByUserId(long user_id) {
+	public List<Review> selectReviewsByUserId(long user_id, int page, int reviewsPerPage) {
 		// reviews, movies, users 테이블을 JOIN
 		// 파라미터로 받은 user_id와 같은 리뷰들만 검색
 		// review_date 내림차순으로 정렬하여 검색
@@ -89,7 +91,7 @@ public class ReviewDAO {
                      "JOIN movies m ON r.movie_id = m.movie_id " +
                      "JOIN users u ON r.user_id = u.user_id " +
                      "WHERE r.user_id = ? " +
-                     "ORDER BY r.review_date DESC";
+                     "OFFSET ? ROWS FETCH NEXT ? ROWS ONLY";
         
         List<Review> list = new ArrayList<>();
         Connection conn = null;
@@ -100,6 +102,8 @@ public class ReviewDAO {
             conn = DBManager.getConnection();
             pstmt = conn.prepareStatement(sql);
             pstmt.setLong(1, user_id);
+            pstmt.setInt(2, (page - 1) * reviewsPerPage);
+            pstmt.setInt(3, reviewsPerPage);
 
             rs = pstmt.executeQuery();
 
@@ -124,5 +128,35 @@ public class ReviewDAO {
             DBManager.close(conn, pstmt, rs);
         }
         return list;
+    }
+	
+	/**
+     * 특정 사용자가 작성한 리뷰의 '총 개수'를 반환하는 메소드
+     * @param user_id 조회할 유저의 ID
+     * @return 총 리뷰 개수
+     */
+    public int getReviewCountByUserId(long user_id) {
+        String sql = "SELECT COUNT(*) FROM reviews WHERE user_id = ?";
+        int count = 0;
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+
+        try {
+            conn = DBManager.getConnection();
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setLong(1, user_id);
+            rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                count = rs.getInt(1);
+            }
+        } catch (Exception e) {
+            System.err.println("getReviewCountByUserId 메소드 오류");
+            e.printStackTrace();
+        } finally {
+            DBManager.close(conn, pstmt, rs);
+        }
+        return count;
     }
 }
