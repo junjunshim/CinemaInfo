@@ -52,12 +52,8 @@ public class UserPageServlet extends HttpServlet {
         
         // 아이디로 사용자 상세 정보 조회
         User user = uDao.selectUserByUsername(username);
-        
-        // 사용자 id값을 이용해서 모든 리뷰 가져오기
-        List<Review> reviewList = rDao.selectReviewsByUserId(user.getUser_id());
-        
+         
         request.setAttribute("userInfo", user);
-        request.setAttribute("reviewList", reviewList);
         
         // 최종적으로 보여줄 페이지=> user.jsp
         String url = "/user.jsp"; 

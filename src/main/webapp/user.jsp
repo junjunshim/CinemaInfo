@@ -4,7 +4,6 @@
 
 <%
 	User userInfo = (User)request.getAttribute("userInfo");
-	List<Review> reviewList = (List<Review>) request.getAttribute("reviewList");
 	
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy년 MM월 dd일");
 %>
