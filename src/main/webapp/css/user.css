@@ -6,7 +6,6 @@ body {
 
 .profile-box {
 	width: 500px;
-	height: 700px;
 	margin: 100px auto;
 	padding: 30px;
 	background-color: white;
@@ -35,7 +34,8 @@ body {
 	width: 450px;
 	height: 60px;
 	padding: 10px 20px;
-	margin-top: 120px;
+	margin-top: 80px;
+	margin-bottom: 30px;
 	background-color: black;
 	color: white;
 	border: none;
@@ -62,4 +62,52 @@ body {
 	background-color: white;
 	border: solid 0.1px rgba(0, 0, 0, 0.1);
 	border-radius: 5px;
+}
+
+.review-movie-title a{
+	color: black;
+	text-decoration: none;
+}
+
+.review-movie-title a:hover {
+	color: blue;
+}
+
+.review-content {
+	color: gray;	
+}
+
+.review-meta {
+	font-size: 12px;
+}
+
+.review-rating {
+	color: #ffcc00;
+	margin: 0 2px;	
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.pagination a {
+    color: #555;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid #ddd;
+    margin: 0 4px;
+    border-radius: 4px;
+}
+
+.pagination a.active {
+    background-color: #333; /* 헤더 색상과 통일 */
+    color: white;
+    border: 1px solid #333;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #f0f0f0;
 }

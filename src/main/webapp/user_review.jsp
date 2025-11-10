@@ -26,7 +26,6 @@ SimpleDateFormat sdf = new SimpleDateFormat("yyyy년 MM월 dd일");
 		<h4><%=userInfo.getNickName()%>님의 리뷰 목록</h4>
 		<p>아이디 : <%=userInfo.getUserName()%> | 가입일 : <%=sdf.format(userInfo.getJoin_date())%></p>
 		<hr>
-		<br>
 		<%
 		if (userInfo != null) {
 		%>
@@ -43,15 +42,15 @@ SimpleDateFormat sdf = new SimpleDateFormat("yyyy년 MM월 dd일");
 					</h3>
 					<p class="review-content"><%=review.getReview_comment()%></p>
 					<div class="review-meta">
-						<span class="review-rating">⭐ <%=review.getRating()%></span>
-						<span class="review-date"><%=sdf.format(review.getReview_date())%></span>
+						<span>평점 </span><span class="review-rating">★</span><span><%=review.getRating()%> | </span>
+						<span class="review-date">리뷰 작성일 : <%=sdf.format(review.getReview_date())%></span>
 					</div>
 				</div>
+				<hr>
 				<%
-				} // for문 종료
+					} 
 				} else {
 				%>
-				<%-- 리뷰가 하나도 없을 경우 --%>
 				<div class="no-reviews">
 					<p>아직 작성한 리뷰가 없습니다.</p>
 				</div>
@@ -60,24 +59,29 @@ SimpleDateFormat sdf = new SimpleDateFormat("yyyy년 MM월 dd일");
 				%>
 			</div>
 		</section>
+		<br>
 		<div class="pagination">
-                <%-- '이전' 버튼: 1페이지보다 클 때만 표시 --%>
                 <% if (currentPage > 1) { %>
                     <a href="userReview.do?page=<%= currentPage - 1 %>">&laquo;</a>
                 <% } %>
-
-                <%-- 페이지 번호 링크: 1부터 totalPages까지 반복 --%>
-                <% for (int i = 1; i <= totalPages; i++) { %>
-                    <% if (i == currentPage) { %>
-                        <%-- 현재 페이지는 링크 없이 강조만 --%>
+                <%
+                int start_page;
+                if ((currentPage - 2) <= 0){
+                	start_page = 1;
+                } else if((currentPage + 2) <= totalPages){
+            		start_page = currentPage - 2;
+            	} else{
+            		start_page = totalPages - 4;
+            	}
+                for (int i = start_page; i < (start_page + 5); i++) {	
+                	if (i == currentPage) { %>
                         <a href="#" class="active"><%= i %></a> 
-                    <% } else { %>
-                        <%-- 다른 페이지는 링크 부여 --%>
+                    <%
+                    } else { 
+                    %>
                         <a href="userReview.do?page=<%= i %>"><%= i %></a>
                     <% } %>
                 <% } %>
-
-                <%-- '다음' 버튼: 마지막 페이지보다 작을 때만 표시 --%>
                 <% if (currentPage < totalPages) { %>
                     <a href="userReview.do?page=<%= currentPage + 1 %>">&raquo;</a>
                 <% } %>
