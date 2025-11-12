@@ -2,39 +2,53 @@
 <!DOCTYPEhtml>
 <html>
 <head>
-<title>로그인</title>
+<title>회원가입</title>
+<!-- css 링크 -->
 <link rel="stylesheet" href="css/join.css">
 <link rel="stylesheet" href="css/header.css">
 <link rel="stylesheet" href="css/footer.css">
 </head>
 <body>
+	<!-- include 액션 태그로 header.jsp 포함 -->
 	<jsp:include page="header.jsp" />
+	
+	<!-- 회원 가입에 사용될 폼 데이터 입력 부분 :
+		 폼 페이지 처리 페이지 : join_process.jsp
+		 폼 데이터 전송 방식 : post
+	-->
 	<form action="join_process.jsp" id="join-form" name="join-form" method="post">
 		<div class="joinform">
 			<h1>회원가입</h1>
 			가입하고 다양한 혜택을 누리세요!
 			<div class="textbox">
 				<p>
+					<!-- 사용자 이름 입력 부분 -->
 					<input type="text" id="name" name="name" placeholder="이름">
-				<div id="name-error" class="error-message"></div>
-
-				<p>
+					<!-- 유효성 검사 처리 후, 오류 메세지 표시 부분 -->
+					<div id="name-error" class="error-message"></div>
+				<p>					
+					<!-- 사용자 아이디 입력 부분 -->
 					<input type="text" id="id" name="id" placeholder="아이디 입력(영문)">
-				<div id="id-error" class="error-message"></div>
-
+					<!-- 유효성 검사 처리 후, 오류 메세지 표시 부분 -->
+					<div id="id-error" class="error-message"></div>
 				<p>
+					<!-- 사용자 비밀번호 입력 부분 -->
 					<input type="password" id="passwd" name="passwd" placeholder="비밀번호(8~12자의 영문, 숫자)">
-				<div id="passwd-error" class="error-message"></div>
-
+					<!-- 유효성 검사 처리 후, 오류 메세지 표시 부분 -->
+					<div id="passwd-error" class="error-message"></div>
 				<p>
+					<!-- 사용자 비밀번호 확인 입력 부분 -->
 					<input type="password" id="pass" placeholder="비밀번호 확인">
-				<div id="pass-error" class="error-message"></div>
-				
+					<!-- 유효성 검사 처리 후, 오류 메세지 표시 부분 -->
+					<div id="pass-error" class="error-message"></div>			
 				<p>
+					<!-- 사용자 이메일 입력 부분 -->
                 	<input type="email" id="email" name="email" placeholder="이메일">
-            	<div id="email-error" class="error-message"></div>
+					<!-- 유효성 검사 처리 후, 오류 메세지 표시 부분 -->
+	            	<div id="email-error" class="error-message"></div>
 			</div>
 			<p>
+				<!-- 폼 데이터 전송 버튼 -->
 				<input type="submit" value="가입하기" class="j_button">
 		</div>
 	</form>
@@ -148,6 +162,7 @@
       });
     });
   </script>
+  	<!-- include 액션 태그로 footer.jsp 포함 -->
 	<jsp:include page="footer.jsp" />
 </body>
 </html>
