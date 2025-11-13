@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!-- index.jsp에서 사용될 라이브러리 -->
+<!-- index.jsp에서 사용될 자바 클래스 설정
+	 java.util.List => 영화들을 리스트 형태로 관리하기 위한 List 클래스
+	 dto.Movie => 영화의 정보를 담는 클래스
+	 dto.Review => 리뷰의 정보를 담는 클래스
+-->
 <%@ page import="java.util.List, dto.Movie, dto.Review" %>
 
 <%
