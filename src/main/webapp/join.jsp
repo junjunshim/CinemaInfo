@@ -23,27 +23,27 @@
 			<div class="textbox">
 				<p>
 					<!-- 사용자 이름 입력 부분 -->
-					<input type="text" id="name" name="name" placeholder="이름">
+					<input class="j_input" type="text" id="name" name="name" placeholder="이름">
 					<!-- 유효성 검사 처리 후, 오류 메세지 표시 부분 -->
 					<div id="name-error" class="error-message"></div>
 				<p>					
 					<!-- 사용자 아이디 입력 부분 -->
-					<input type="text" id="id" name="id" placeholder="아이디 입력(영문)">
+					<input class="j_input" type="text" id="id" name="id" placeholder="아이디 입력(영문)">
 					<!-- 유효성 검사 처리 후, 오류 메세지 표시 부분 -->
 					<div id="id-error" class="error-message"></div>
 				<p>
 					<!-- 사용자 비밀번호 입력 부분 -->
-					<input type="password" id="passwd" name="passwd" placeholder="비밀번호(8~12자의 영문, 숫자)">
+					<input class="j_input" type="password" id="passwd" name="passwd" placeholder="비밀번호(8~12자의 영문, 숫자)">
 					<!-- 유효성 검사 처리 후, 오류 메세지 표시 부분 -->
 					<div id="passwd-error" class="error-message"></div>
 				<p>
 					<!-- 사용자 비밀번호 확인 입력 부분 -->
-					<input type="password" id="pass" placeholder="비밀번호 확인">
+					<input class="j_input" type="password" id="pass" placeholder="비밀번호 확인">
 					<!-- 유효성 검사 처리 후, 오류 메세지 표시 부분 -->
 					<div id="pass-error" class="error-message"></div>			
 				<p>
 					<!-- 사용자 이메일 입력 부분 -->
-                	<input type="email" id="email" name="email" placeholder="이메일">
+                	<input class="j_input" type="email" id="email" name="email" placeholder="이메일">
 					<!-- 유효성 검사 처리 후, 오류 메세지 표시 부분 -->
 	            	<div id="email-error" class="error-message"></div>
 			</div>
@@ -119,13 +119,14 @@
         }
         else if(!/(?=.*[a-zA-Z])(?=.*[0-9])^[a-zA-Z0-9]+$/.test(passwdtrim)){
         	passwdError.textContent = "비밀번호는 영문과 숫자를 포함해야 합니다.";
+        	valid = false;
         }
         else if (passwdtrim.length < 8 || passwdtrim.length > 12){
         	passwdError.textContent = "비밀번호는 8자 이상 12자 이하여야 합니다.";
         	valid = false;
         }
         else {
-        	
+        
           passwdError.textContent = "";
         }
         

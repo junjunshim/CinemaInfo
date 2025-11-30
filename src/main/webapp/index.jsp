@@ -97,7 +97,7 @@
         		<%
         			// 영화의 리뷰 리스트가 있을 때만, 표시
         			if(reviewList != null && !reviewList.isEmpty()){
-        				for(int i = 0; i < 4; i++){
+        				for(int i = 0; i < 5; i++){
         					// 리스트에서 하나의 리뷰 가져오기
         					Review review = reviewList.get(i);
         		%>
