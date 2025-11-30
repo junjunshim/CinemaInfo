@@ -13,8 +13,13 @@
         		request.getContextPath() + /main.do => 메인 페이지 서블릿 이동 경로
         	 -->
             <a href="<%=request.getContextPath() %>/main.do">홈</a>
-            <a href="movies.jsp">카테고리</a>
         </nav>
+        <div class="search-bar">
+            <form action="<%=request.getContextPath() %>/search.do" method="get">
+                <input type="text" name="keyword" placeholder="영화 제목을 입력하세요" required>
+                <button type="submit">🔍</button>
+            </form>
+        </div>
         <nav class="nav-menu-right">
         	<%
         	// 로그인 성공 시, 설정되는 세션 값이 있는 확인
@@ -38,7 +43,6 @@
         	<%
         	}
         	%>
-        	
         </nav>
     </div>
 </header>

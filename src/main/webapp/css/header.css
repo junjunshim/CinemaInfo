@@ -4,7 +4,7 @@
     position: sticky;
     top: 0;
     background-color: #222;
-    padding: 15px 5%;
+    padding: 15px 10%;
     color: white;
     z-index: 1000;
 }
@@ -16,7 +16,7 @@
 }
 
 .logo {
-    height: 40px;
+    height: 60px;
     margin-right: 20px;
 }
 
@@ -27,6 +27,7 @@
 }
 	
 .nav-menu-left a {
+	font-size: 20px;
     color: white;
     text-decoration: none;
     font-weight: bold;
@@ -42,6 +43,7 @@
 }
 
 .nav-menu-right a{
+	font-size: 20px;
 	color: white;
 	text-decoration: none;
 	font-weight: bold;
@@ -49,4 +51,54 @@
 
 .nav-menu-right a:hover{
 	text-decoration: underline;
+}
+
+.search-bar {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    margin: 0 30px;
+    height: 40px;
+}
+
+.search-bar form {
+    display: flex;
+    align-items: center;
+    background-color: #f1f3f5;
+    border-radius: 20px;
+    padding: 5px 15px;
+    width: 100%;
+    max-width: 400px; /* 검색창 최대 너비 */
+    border: 1px solid transparent;
+    transition: border-color 0.3s;
+    margin: 0px;
+}
+
+/* 검색창 포커스 효과 */
+.search-bar form:focus-within {
+    border-color: #007bff;
+    background-color: #fff;
+}
+
+.search-bar input {
+    border: none;
+    background: none;
+    outline: none;
+    padding: 5px;
+    font-size: 0.95em;
+    width: 100%;
+    color: #333;
+}
+
+.search-bar button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 1.2em;
+    padding: 0 0 0 10px;
+    transition: transform 0.2s;
+}
+
+.search-bar button:hover {
+    transform: scale(1.1);
 }
