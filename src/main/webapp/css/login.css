@@ -1,6 +1,7 @@
 @charset "UTF-8";
- a{color : grey;}
-  .login-form{
+a{color : grey;}
+ .login-form{
+ 	
 	text-align :center;
 	width : 500px;
 	margin : 100px auto;
@@ -11,16 +12,17 @@
 	border-radius : 20px;
 	font-size : 16px;
 	display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color : white;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  }
-  body{
-  	background-color : rgba(188, 188, 188, 0.1);
-  	margin: 0;
-  }
-  input{
+   	flex-direction: column;
+  	align-items: center;
+   	background-color : white;
+   	box-shadow: 0 0 10px rgba(0,0,0,0.1);
+ }
+body{
+ 	background-color : rgba(188, 188, 188, 0.1);
+ 	margin: 0;
+ 	}
+ 
+.m_button{
   	height : 55px;
   	width : 400px;
   	margin : 2px;
@@ -29,13 +31,19 @@
   	border-radius : 5px;
   	color : grey;
   	background-color :rgba(128, 128, 128, 0.1) ;
-  }
-  .m_button{
   	background-color : black;
   	color : white;
   	
   }
   .login_button{
+ 	height : 55px;
+  	width : 400px;
+  	margin : 2px;
+  	font-size : 17px;
+  	border : 0.1px solid rgba(0, 0, 0, 0.4);
+  	border-radius : 5px;
+  	color : grey;
+  	background-color :rgba(128, 128, 128, 0.1) ;
   	padding : 2px;
 	margin-bottom : 0.2px;  
   }

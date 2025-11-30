@@ -15,10 +15,11 @@
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
   }
   body{
-  	background-color : rgba(188, 188, 188, 0.2);
+  	background-color : rgba(188, 188, 188, 0.1);
   	margin: 0;
   }
-  input{
+  
+  .j_input{
   	height : 55px;
   	width : 400px;
   	margin : 2px;
@@ -30,6 +31,13 @@
   	
   }
   .j_button{
+  	height : 55px;
+  	width : 400px;
+  	margin : 2px;
+  	font-size : 17px;
+  	border : 0.1px solid rgba(0, 0, 0, 0.4);
+  	border-radius : 5px;
+  	color : grey;
   	background-color : black;
   	color : white;
   	font-size : 25px;
