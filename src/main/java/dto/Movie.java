@@ -27,8 +27,10 @@ public class Movie implements Serializable {
 	private String director;
 	//영화 주연
 	private String main_actor;
-	//영화 시놊시스
+	//영화 시놉시스
 	private String description;
+	//영화 예고편 경로
+	private String video_path;
 	//영화 평균 평점
 	private double avg_rating;
 	
@@ -39,7 +41,7 @@ public class Movie implements Serializable {
 	
 	public Movie(long movie_id, String movie_title, String img_path, Date release_date, int duration, long audience,
 			String film_rating, String category, String country, String director, String main_actor, String description,
-			double avg_rating) {
+			String video_path, double avg_rating) {
 		super();
 		this.movie_id = movie_id;
 		this.movie_title = movie_title;
@@ -53,6 +55,7 @@ public class Movie implements Serializable {
 		this.director = director;
 		this.main_actor = main_actor;
 		this.description = description;
+		this.video_path = video_path;
 		this.avg_rating = avg_rating;
 	}
 	
@@ -128,6 +131,12 @@ public class Movie implements Serializable {
 	}
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	public String getVideo_path() {
+		return this.video_path;
+	}
+	public void setVideo_path(String video_path) {
+		this.video_path = video_path;
 	}
 	public double getAvg_rating() {
 		return avg_rating;

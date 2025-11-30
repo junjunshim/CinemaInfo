@@ -5,6 +5,11 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+/**
+ * 데이터베이스 연결을 확인하는 클래스
+ *--테스트용--
+ * 사용 XXXXXX
+ */
 public class CheckDatabase {
 
     public static void main(String[] args) {
