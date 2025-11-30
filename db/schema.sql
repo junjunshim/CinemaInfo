@@ -44,6 +44,7 @@ CREATE TABLE movies (
     director VARCHAR2(100),
     main_actor VARCHAR2(100),
     description VARCHAR2(4000),
+    video_path VARCHAR2(100),
     avg_rating NUMBER(3,1) DEFAULT 0
 );
 
