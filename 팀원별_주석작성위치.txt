@@ -1,0 +1,5 @@
+심동준 - controller, dao, db, dto, test,
+	    index.jsp, header.jsp, user_review.jsp, search.jsp
+김인선 - join.jsp, join_process.jsp, login.jsp, login_process.jsp, user.jsp, 
+	    profile.jsp, profile_process.jsp
+박호성 - detail.jsp, category.jsp, logout.jsp, footer.jsp
