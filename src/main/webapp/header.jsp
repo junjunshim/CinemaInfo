@@ -13,7 +13,24 @@
         		request.getContextPath() + /main.do => 메인 페이지 서블릿 이동 경로
         	 -->
             <a href="<%=request.getContextPath() %>/main.do">홈</a>
+            <!-- 카테고리 텝 -->
+            <div class="dropdown">
+                <a href="#" class="dropbtn">카테고리 ▾</a>
+                <!-- dropdown-content의 display 속성이 none
+                	 hover시, display가 block으로 변하며 보인다.
+                 -->
+                <div class="dropdown-content">
+                    <a href="<%=request.getContextPath() %>/category.do?category=액션">액션</a>
+                    <a href="<%=request.getContextPath() %>/category.do?category=로맨스">로맨스</a>
+                    <a href="<%=request.getContextPath() %>/category.do?category=코미디">코미디</a>
+                    <a href="<%=request.getContextPath() %>/category.do?category=스릴러">스릴러</a>
+                    <a href="<%=request.getContextPath() %>/category.do?category=판타지">판타지</a>
+                    <a href="<%=request.getContextPath() %>/category.do?category=드라마">드라마</a>
+                    <a href="<%=request.getContextPath() %>/category.do?category=애니메이션">애니메이션</a>
+                </div>
+            </div>
         </nav>
+        <!-- 검색창 부분 -->
         <div class="search-bar">
             <form action="<%=request.getContextPath() %>/search.do" method="get">
                 <input type="text" name="keyword" placeholder="영화 제목을 입력하세요" required>

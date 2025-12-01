@@ -1,391 +1,443 @@
 /* 기본 설정 */
 html, body {
-    margin: 0;
-    padding: 0;
-    min-height: 100%;
-    background-color : rgba(188, 188, 188, 0.1);
-    display: flex;
-    flex-direction: column;
+	margin: 0;
+	padding: 0;
+	min-height: 100%;
+	background-color: rgba(188, 188, 188, 0.1);
+	display: flex;
+	flex-direction: column;
 }
-
 
 /* main */
 main {
-    flex: 1;
-    padding: 20px 5%;
-    box-sizing: border-box;
+	flex: 1;
+	padding: 20px 5%;
+	box-sizing: border-box;
 }
 
 .movie-grid {
-    display: flex;
-    justify-content: center;
-    gap: 100px;
-    flex-wrap: wrap;
-    margin: 50px 0px;
+	display: flex;
+	justify-content: center;
+	gap: 100px;
+	flex-wrap: wrap;
+	margin: 50px 0px;
 }
 
 .movie-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 280px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background: #fff;
-    padding: 10px;
-    text-align: center;
-    box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* 애니메이션 */
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	width: 280px;
+	border: 1px solid #ddd;
+	border-radius: 8px;
+	background: #fff;
+	padding: 10px;
+	text-align: center;
+	text-decoration: none;
+	box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+	transition: transform 0.3s ease, box-shadow 0.3s ease; /* 애니메이션 */
 }
 
 /* 마우스 오버 시 효과 */
 .movie-card:hover {
-    transform: scale(1.10); /* 살짝 커짐 */
-    box-shadow: 4px 6px 12px rgba(0,0,0,0.2); /* 그림자 강조 */
+	transform: scale(1.10); /* 살짝 커짐 */
+	box-shadow: 4px 6px 12px rgba(0, 0, 0, 0.2); /* 그림자 강조 */
 }
 
 .movie-card img {
-    width: 100%;
-    border-radius: 4px;
+	width: 100%;
+	border-radius: 4px;
 }
 
 .movie-card h2 {
-    margin: 10px 0 5px;
-    font-size: 27px;
+	margin: 10px 0 5px;
+	font-size: 27px;
 }
 
 .movie-card p {
-    width: 100%; 
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 3; 
-    -webkit-box-orient: vertical;
-    font-size: 14px;
-    color: #555;
+	width: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	font-size: 14px;
+	color: #555;
 }
 
 .movie-card a {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 8px 12px;
-    background: #333;
-    color: white;
-    text-decoration: none;
-    border-radius: 4px;
+	display: inline-block;
+	margin-top: 10px;
+	padding: 8px 12px;
+	background: #333;
+	color: white;
+	text-decoration: none;
+	border-radius: 4px;
 }
 
 .movie-card a:hover {
-    background: #555;
+	background: #555;
+}
+
+.movie-title {
+	color: black;
+	font-weight: bold;
+	font-size: 1.4em;
+	margin-bottom: 5px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.movie-meta {
+	font-size: 1.1em;
+	color: #666;
+	display: flex;
+	justify-content: space-between;
 }
 
 /* top-movie 전체 레이아웃 */
 .top-movie {
 	background: #fff;
-    display: flex;
-    gap: 70px;
-    border-radius: 4px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    margin: 100px auto;
-    max-width: 80%;
+	display: flex;
+	gap: 70px;
+	border-radius: 4px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	margin: 100px auto;
+	max-width: 80%;
 }
 
 /* 왼쪽 영역: 영화 정보 */
 .top-movie-content {
-    display: flex;
-    margin: 30px 0px 0px 20px;
-    flex-direction: column;
-    align-items: center;
-    flex: 0 0 auto; /* 크기 고정 */
+	display: flex;
+	margin: 30px 0px 0px 20px;
+	flex-direction: column;
+	align-items: center;
+	flex: 0 0 auto; /* 크기 고정 */
 }
 
 /* 영화 포스터 */
-
 .top-movie-img {
-    width: 280px;
-    object-fit: cover;
-    border-radius: 6px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+	width: 280px;
+	object-fit: cover;
+	border-radius: 6px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* 영화 제목 */
 .top-movie-title {
-    text-align: center;
-    width: 175px; /* 포스터 크기에 맞춤 */
-    word-wrap: break-word;
+	text-align: center;
+	width: 175px; /* 포스터 크기에 맞춤 */
+	word-wrap: break-word;
 }
 
-.top-movie-title h2{
+.top-movie-title h2 {
 	font-size: 25px;
 }
 
 /* 오른쪽 영역: 리뷰 */
 .top-movie-review {
-    display: flex;
-    flex-direction: column;
-    flex: 1; /* 가변 크기 */
+	display: flex;
+	flex-direction: column;
+	flex: 1; /* 가변 크기 */
 }
 
 /* 리뷰 제목 */
 .top-review-title {
-    font-size: 1.7em;
-    font-weight: bold;
-    margin-bottom: 15px;
+	font-size: 1.7em;
+	font-weight: bold;
+	margin-bottom: 15px;
 }
 
 /* 리뷰 리스트 */
 .top-review-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 60%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 60%;
 }
 
 /* 리뷰 아이템 */
 .review-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    background: #fafafa;
-    max-width: 90%;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 10px;
+	border: 1px solid #ddd;
+	border-radius: 6px;
+	background: #fafafa;
+	max-width: 90%;
 }
 
 .top-review-score {
-    font-weight: bold;
-    color: #ff9800;
-    min-width: 50px;
+	font-weight: bold;
+	color: #ff9800;
+	min-width: 50px;
 }
 
 .top-review-text {
-    flex: 1;
+	flex: 1;
 }
 
 /* 카테고리 전체 */
 .category-movie {
-    display: flex;
-    flex-direction: column;
-    margin: 80px auto;
-    max-width: 80%;
+	display: flex;
+	flex-direction: column;
+	margin: 80px auto;
+	max-width: 80%;
 }
 
 /* 상단: 카테고리명 + 더보기 */
 .category-upper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 15px;
 }
 
 .category-title {
-    font-size: 1.7em;
-    font-weight: bold;
+	font-size: 1.7em;
+	font-weight: bold;
 }
 
 .categorypage-link {
-    text-decoration: none;
-    color: #007BFF;
-    font-weight: bold;
-    transition: color 0.3s;
+	text-decoration: none;
+	color: #007BFF;
+	font-weight: bold;
+	transition: color 0.3s;
 }
 
 .categorypage-link:hover {
-    color: #0056b3;
+	color: #0056b3;
 }
 
 /* 영화 이미지 컨테이너 */
 .category-img-container {
-    display: flex;
-    justify-content: space-between;
-  	align-items: center;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 
 /* 개별 영화 이미지 */
 .category-movie-img img {
-    width: 170px;
-    object-fit: cover;
-    border-radius: 6px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    transition: transform 0.3s ease;
+	width: 170px;
+	object-fit: cover;
+	border-radius: 6px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	transition: transform 0.3s ease;
 }
 
 /* 호버 시 효과 */
 .category-movie-img img:hover {
-    transform: scale(1.05);
+	transform: scale(1.05);
 }
-
 
 /* detail page */
 .detail-container {
-    display: flex;
-    justify-content: center;
-    padding: 30px;
+	display: flex;
+	justify-content: center;
+	padding: 30px;
 }
 
 .detail-card {
-    display: flex;
-    gap: 30px;
-    max-width: 900px;
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+	display: flex;
+	gap: 30px;
+	max-width: 900px;
+	background: #fff;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .detail-poster {
-    width: 300px;
-    border-radius: 8px;
+	width: 300px;
+	border-radius: 8px;
 }
 
 .detail-info {
-    flex: 1;
+	flex: 1;
 }
 
 .detail-info h1 {
-    margin-top: 0;
-    font-size: 28px;
-    margin-bottom: 15px;
+	margin-top: 0;
+	font-size: 28px;
+	margin-bottom: 15px;
 }
 
 .detail-description {
-    margin: 20px 0;
-    line-height: 1.6;
-    color: #444;
+	margin: 20px 0;
+	line-height: 1.6;
+	color: #444;
 }
 
 .back-button {
-    display: inline-block;
-    padding: 10px 15px;
-    background: #222;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 14px;
+	display: inline-block;
+	padding: 10px 15px;
+	background: #222;
+	color: white;
+	text-decoration: none;
+	border-radius: 5px;
+	font-size: 14px;
 }
 
 .back-button:hover {
-    background: #444;
+	background: #444;
 }
 
 .search-container {
 	width: 80%;
- 	max-width: 900px;
-    margin: 40px auto;
-    padding: 0 20px;
-    min-height: 600px;
+	max-width: 900px;
+	margin: 40px auto;
+	padding: 0 20px;
+	min-height: 600px;
 }
 
 .search-header {
-    border-bottom: 2px solid #333;
-    margin-bottom: 20px;
-    padding-bottom: 15px;
+	border-bottom: 2px solid #333;
+	margin-bottom: 20px;
+	padding-bottom: 15px;
 }
 
 .search-header h2 {
-    font-size: 1.5em;
-    margin: 0;
-    color: #333;
+	font-size: 1.5em;
+	margin: 0;
+	color: #333;
 }
 
 .search-result-count {
-    color: #e74c3c;
-    font-weight: bold;
+	color: #e74c3c;
+	font-weight: bold;
 }
 
 .search-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+	list-style: none;
+	padding: 0;
+	margin: 0;
 }
 
 .search-item {
-    display: flex;
-    padding: 20px 0;
-    border-bottom: 1px solid #e1e1e1;
+	display: flex;
+	padding: 20px 0;
+	border-bottom: 1px solid #e1e1e1;
 }
 
 .item-poster {
-    width: 150px;
-    flex-shrink: 0;
-    margin-right: 20px;
+	width: 150px;
+	flex-shrink: 0;
+	margin-right: 20px;
 }
 
 .item-poster img {
-    width: 100%;
-    height: auto;
-    border: 1px solid #eee;
-    border-radius: 6px;
-    cursor: pointer;
+	width: 100%;
+	height: auto;
+	border: 1px solid #eee;
+	border-radius: 6px;
+	cursor: pointer;
 }
 
 .item-info {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    gap: 15px;
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	gap: 15px;
 }
 
 /* 제목 */
 .info-title {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #333;
-    text-decoration: none;
-    margin-bottom: 2px;
+	font-size: 1.5em;
+	font-weight: bold;
+	color: #333;
+	text-decoration: none;
+	margin-bottom: 2px;
 }
 
 .info-title:hover {
-    text-decoration: underline;
+	text-decoration: underline;
 }
 
 .info-year {
-    font-weight: normal;
-    font-size: 1.1em;
-    color: #666;
-    margin-left: 5px;
+	font-weight: normal;
+	font-size: 1.1em;
+	color: #666;
+	margin-left: 5px;
 }
 
 .info-meta {
-    font-size: 1.1em;
-    color: #666;
+	font-size: 1.1em;
+	color: #666;
 }
 
 .separator {
-    margin: 0 5px;
-    color: #ccc;
-    font-size: 0.8em;
+	margin: 0 5px;
+	color: #ccc;
+	font-size: 0.8em;
 }
 
 .info-people {
-    font-size: 1.1em;
-    color: #444;
-    line-height: 1.4;
+	font-size: 1.1em;
+	color: #444;
+	line-height: 1.4;
 }
 
 .label {
-    font-weight: bold;
-    color: #333;
-    margin-right: 5px;
+	font-weight: bold;
+	color: #333;
+	margin-right: 5px;
 }
 
 .info-rating {
-    font-size: 1.1em;
-    color: #666;
-    margin-top: 5px;
+	font-size: 1.1em;
+	color: #666;
+	margin-top: 5px;
 }
 
 .star-score {
-    color: #E8A317;
-    font-weight: bold;
-    font-size: 1.1em;
-    margin-left: 5px;
+	color: #E8A317;
+	font-weight: bold;
+	font-size: 1.1em;
+	margin-left: 5px;
 }
 
 .no-result {
-    text-align: center;
-    padding: 100px 0;
-    color: #888;
+	text-align: center;
+	padding: 100px 0;
+	color: #888;
+}
+
+/* 카테고리 페이지 전용 스타일 */
+.category-container {
+	max-width: 1200px;
+	margin: 40px auto;
+	padding: 0 20px;
+	min-height: 600px;
+}
+
+.category-header {
+	margin-bottom: 30px;
+	padding-bottom: 15px;
+	border-bottom: 2px solid #333;
+}
+
+.category-header h1 {
+	font-size: 1.8em;
+	margin: 0;
+	color: #333;
+}
+
+.count-badge {
+	font-size: 0.6em;
+	background-color: #eee;
+	padding: 5px 10px;
+	border-radius: 15px;
+	vertical-align: middle;
+	margin-left: 10px;
+	color: #555;
+}
+
+.no-data {
+	text-align: center;
+	padding: 100px 0;
+	color: #888;
+	font-size: 1.2em;
 }

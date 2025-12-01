@@ -51,10 +51,13 @@
 						onclick="location.href = '<%= request.getContextPath() %>/userReview.do'">작성한 리뷰</button>
 				</div>
 				<!-- 사용자가 좋아요 표시한 영화 확인 기능 -->
+				<!-- 
 				<div class="btnbox">
 				<button type="button" class="bt"
 						onclick="location.href = '<%= request.getContextPath() %>/userMovie.do'">보고싶어요한 영화</button>
 				</div>
+				 -->
+				
 				<!-- 사용자 정보 변경 기능 -->
 				<div class="btnbox">
 					<button type="button" class="bt"

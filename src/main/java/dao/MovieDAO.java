@@ -181,6 +181,8 @@ public class MovieDAO {
                 movie.setMovie_id(rs.getLong("movie_id"));
                 movie.setMovie_title(rs.getString("title"));
                 movie.setImg_path(rs.getString("image_path"));
+                movie.setRelease_date(rs.getDate("release_date"));
+                movie.setAvg_rating(rs.getDouble("avg_rating"));
                 // 가져온 영화 데이터를 담는 movie객체를 리스트에 추가
                 list.add(movie);
             }
