@@ -66,7 +66,7 @@
         			<h1 class="movie-title <%=!movie.getMovie_title().isEmpty() ? "" : "placeholder" %>">
           				<%=!movie.getMovie_title().isEmpty() ? movie.getMovie_title() : "제목 정보 없음" %>
         			</h1>
-       				<dl class="meta">
+       				<dl style="padding: 0px 0px 50px 30px;" class="meta">
           				<dt>개봉</dt><dd><%=movie.getRelease_date() %></dd>
 				        <dt>시간</dt><dd><%=movie.getDuration()+"분" %></dd>
 				        <%
@@ -105,9 +105,9 @@
     		</div>
   		</div>
 	</section>
-	<!-- 영화의 줄거리 부분 -->
+	<!-- 영화의 시놉시스 부분 -->
 	<div class="container section">
-  		<h3>줄거리</h3>
+  		<h3>&nbsp;시놉시스</h3>
   		<!-- 삼항 연산자로 영화 상세내용이 있는지 확인 후 값 출력 -->
   		<p class="synopsis"><%=!movie.getDescription().isEmpty() ?  movie.getDescription() : "줄거리 준비중입니다." %></p>
 	</div>
@@ -117,7 +117,7 @@
 		<%
 		List<String> subImages = (List<String>) request.getAttribute("subImages");
 		%>
-		<h3>사진(<%=subImages.size() %>)</h3>
+		<h3>&nbsp;사진(<%=subImages.size() %>)</h3>
 		<div class="gallery-container">
 		<!-- 서브 이미지가 있는지 확인 -->
         <% 
@@ -139,7 +139,7 @@
 	</div>
 	<!-- 영화 영상 부분 -->
 	<div class="container section">
-		<h3>영상</h3>
+		<h3>&nbsp;영상</h3>
 		<!-- 앞서 변환한 임베디드 주소로 영상 구성 => trailerUrl-->
 		<% if (!trailerUrl.isEmpty()) { %>
         <div class="video-container">
@@ -165,7 +165,7 @@
 	</div>
 	<!-- 리뷰 부분 -->
 	<div class="container section" id="reviews">
-  		<h3>리뷰 작성</h3>
+  		<h3>&nbsp;리뷰 작성</h3>
   		<!-- 리뷰 작성 방식
   			 1. post 발생 시, 서블릿 doPost()함수 호출 (action 속성이 없을 경우) 
   			 2. doPost() 함수에서 action파라미터 의 값이 add면 리뷰 작성, delete면 리뷰 삭제
